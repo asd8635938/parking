@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f2f2f2">
+
+    <include layout="@layout/title_bar" android:id="@+id/title"/>
+
+    <View
+        android:id="@+id/round_bg"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/dp13"
+        android:layout_marginRight="@dimen/dp13"
+        android:layout_height="@dimen/dp40"
+        android:background="@drawable/search_edit_bg"
+        android:layout_marginTop="@dimen/dp13"
+        app:layout_constraintTop_toBottomOf="@id/title"
+
+        />
+    <EditText
+        android:id="@+id/edit_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:hint="请输入车牌号"
+        android:textColorHint="#898989"
+        android:paddingLeft="@dimen/dp13"
+        android:textSize="@dimen/sp15"
+        app:layout_constraintTop_toTopOf="@id/round_bg"
+        android:layout_marginLeft="@dimen/dp13"
+        android:layout_marginRight="@dimen/dp13"
+        android:background="@null"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp13"
+        android:layout_marginRight="@dimen/dp13"
+        android:text="提交"
+        android:textColor="#ffffff"
+        android:background="@drawable/login_btn"
+        android:layout_marginTop="@dimen/dp50"
+        app:layout_constraintTop_toBottomOf="@id/round_bg"
+        />
+</android.support.constraint.ConstraintLayout>

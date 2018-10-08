@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include layout="@layout/title_bar" android:id="@+id/title_bar"/>
+
+    <View
+        android:id="@+id/view_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp10"
+        app:layout_constraintTop_toBottomOf="@id/title_bar"
+        android:background="#f2f2f2"
+        />
+    <ImageView
+        android:id="@+id/head_portrait"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_bg"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginLeft="@dimen/dp13"
+        android:src="@mipmap/qq"
+        />
+
+    <ImageView
+        android:id="@+id/replace_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/right"
+        app:layout_constraintTop_toTopOf="@id/head_portrait"
+        app:layout_constraintBottom_toBottomOf="@id/head_portrait"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/dp13"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp14"
+        android:textColor="#898989"
+        android:text="更换头像"
+        app:layout_constraintTop_toTopOf="@id/head_portrait"
+        app:layout_constraintBottom_toBottomOf="@id/head_portrait"
+        app:layout_constraintRight_toLeftOf="@id/replace_btn"
+        android:layout_marginRight="@dimen/dp15"
+        />
+
+    <View
+        android:id="@+id/view_bg_one"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:background="#f2f2f2"
+        app:layout_constraintTop_toBottomOf="@id/head_portrait"
+        android:layout_marginTop="@dimen/dp5"
+        />
+
+
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/head_portrait"
+        app:layout_constraintTop_toBottomOf="@id/view_bg_one"
+        android:layout_marginTop="@dimen/dp15"
+        android:text="昵称"
+        android:textColor="#222222"
+        android:textSize="@dimen/sp15"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp14"
+        android:textColor="#898989"
+        android:text="荔枝园"
+        app:layout_constraintTop_toTopOf="@id/name"
+        app:layout_constraintBottom_toBottomOf="@id/name"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/dp15"
+        />
+
+    <View
+        android:id="@+id/view_bg_two"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:background="#f2f2f2"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        android:layout_marginTop="@dimen/dp15"
+        />
+
+
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/head_portrait"
+        app:layout_constraintTop_toBottomOf="@id/view_bg_two"
+        android:layout_marginTop="@dimen/dp15"
+        android:text="性别"
+        android:textColor="#222222"
+        android:textSize="@dimen/sp15"
+        />
+    <ImageView
+        android:id="@+id/gender_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/right"
+        app:layout_constraintTop_toTopOf="@id/gender"
+        app:layout_constraintBottom_toBottomOf="@id/gender"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/dp13"
+        />
+    <TextView
+        android:id="@+id/gender_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp14"
+        android:textColor="#898989"
+        android:text="男"
+        app:layout_constraintTop_toTopOf="@id/gender"
+        app:layout_constraintBottom_toBottomOf="@id/gender"
+        app:layout_constraintRight_toRightOf="@id/gender_btn"
+        android:layout_marginRight="@dimen/dp15"
+        />
+
+    <View
+        android:id="@+id/view_bg_three"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:background="#f2f2f2"
+        app:layout_constraintTop_toBottomOf="@id/gender"
+        android:layout_marginTop="@dimen/dp15"
+        />
+
+
+
+
+
+    <TextView
+        android:id="@+id/iphone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/head_portrait"
+        app:layout_constraintTop_toBottomOf="@id/view_bg_three"
+        android:layout_marginTop="@dimen/dp15"
+        android:text="手机号"
+        android:textColor="#222222"
+        android:textSize="@dimen/sp15"
+        />
+    <ImageView
+        android:id="@+id/iphone_number_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/right"
+        app:layout_constraintTop_toTopOf="@id/iphone_number"
+        app:layout_constraintBottom_toBottomOf="@id/iphone_number"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/dp13"
+        />
+    <TextView
+        android:id="@+id/iphone_number_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp14"
+        android:textColor="#898989"
+        android:text="1383838438"
+        app:layout_constraintTop_toTopOf="@id/iphone_number"
+        app:layout_constraintBottom_toBottomOf="@id/iphone_number"
+        app:layout_constraintRight_toRightOf="@id/iphone_number_btn"
+        android:layout_marginRight="@dimen/dp15"
+        />
+
+    <View
+        android:id="@+id/view_bg_four"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp10"
+        android:background="#f2f2f2"
+        app:layout_constraintTop_toBottomOf="@id/iphone_number"
+        android:layout_marginTop="@dimen/dp15"
+        />
+
+
+
+    <TextView
+        android:id="@+id/my_id_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/head_portrait"
+        app:layout_constraintTop_toBottomOf="@id/view_bg_four"
+        android:layout_marginTop="@dimen/dp15"
+        android:text="身份证"
+        android:textColor="#222222"
+        android:textSize="@dimen/sp15"
+        />
+    <ImageView
+        android:id="@+id/my_id_card_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/right"
+        app:layout_constraintTop_toTopOf="@id/my_id_card"
+        app:layout_constraintBottom_toBottomOf="@id/my_id_card"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/dp13"
+        />
+    <TextView
+        android:id="@+id/my_id_card_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp14"
+        android:textColor="#898989"
+        android:text="3622041859658958756"
+        app:layout_constraintTop_toTopOf="@id/my_id_card"
+        app:layout_constraintBottom_toBottomOf="@id/my_id_card"
+        app:layout_constraintRight_toRightOf="@id/my_id_card_btn"
+        android:layout_marginRight="@dimen/dp15"
+        />
+
+    <View
+        android:id="@+id/view_bg_five"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:background="#f2f2f2"
+        app:layout_constraintTop_toBottomOf="@id/my_id_card"
+        android:layout_marginTop="@dimen/dp15"
+        />
+
+
+    <TextView
+        android:id="@+id/my_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/head_portrait"
+        app:layout_constraintTop_toBottomOf="@id/view_bg_five"
+        android:layout_marginTop="@dimen/dp15"
+        android:text="我的地址"
+        android:textColor="#222222"
+        android:textSize="@dimen/sp15"
+        />
+    <ImageView
+        android:id="@+id/my_address_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/right"
+        app:layout_constraintTop_toTopOf="@id/my_address"
+        app:layout_constraintBottom_toBottomOf="@id/my_address"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/dp13"
+        />
+    <TextView
+        android:id="@+id/my_address_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp14"
+        android:textColor="#898989"
+        android:text="广州市天河区棠东东路"
+        app:layout_constraintTop_toTopOf="@id/my_address"
+        app:layout_constraintBottom_toBottomOf="@id/my_address"
+        app:layout_constraintRight_toRightOf="@id/my_address_btn"
+        android:layout_marginRight="@dimen/dp15"
+        />
+
+    <View
+        android:id="@+id/view_bg_six"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:background="#f2f2f2"
+        app:layout_constraintTop_toBottomOf="@id/my_address"
+        android:layout_marginTop="@dimen/dp15"
+        />
+
+
+    <TextView
+        android:id="@+id/car_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/head_portrait"
+        app:layout_constraintTop_toBottomOf="@id/view_bg_six"
+        android:layout_marginTop="@dimen/dp15"
+        android:text="车牌号"
+        android:textColor="#222222"
+        android:textSize="@dimen/sp15"
+        />
+    <ImageView
+        android:id="@+id/car_number_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/right"
+        app:layout_constraintTop_toTopOf="@id/car_number"
+        app:layout_constraintBottom_toBottomOf="@id/car_number"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/dp13"
+        />
+
+    <View
+        android:id="@+id/view_bg_seven"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp0"
+        android:background="#f2f2f2"
+        app:layout_constraintTop_toBottomOf="@id/car_number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dp15"
+        />
+
+
+</android.support.constraint.ConstraintLayout>

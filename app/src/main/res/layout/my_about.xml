@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f2f2f2">
+
+    <include layout="@layout/title_bar" android:id="@+id/title_bar"/>
+
+    <TextView
+        android:id="@+id/about_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#898989"
+        android:textSize="@dimen/sp12"
+        android:paddingLeft="@dimen/dp13"
+        android:paddingRight="@dimen/dp13"
+        android:text="文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们...文字描述关于我们..."
+        app:layout_constraintTop_toBottomOf="@id/title_bar"
+        android:layout_marginTop="@dimen/dp15"
+        />
+
+</android.support.constraint.ConstraintLayout>

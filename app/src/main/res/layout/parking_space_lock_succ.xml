@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include layout="@layout/title_bar" android:id="@+id/title"/>
+
+
+    <ImageView
+        android:id="@+id/lock_succ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/exchange"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <TextView
+        android:id="@+id/succ_lock_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已成功降锁"
+        android:textColor="#000000"
+        android:textSize="@dimen/sp18"
+        app:layout_constraintLeft_toLeftOf="@id/lock_succ"
+        app:layout_constraintRight_toRightOf="@id/lock_succ"
+        app:layout_constraintTop_toBottomOf="@id/lock_succ"
+        android:layout_marginTop="@dimen/dp25"
+        />
+
+    <TextView
+        android:id="@+id/please_car_run_parking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请将汽车驶入停车位"
+        android:textColor="#50c77a"
+        android:textSize="@dimen/sp18"
+        app:layout_constraintLeft_toLeftOf="@id/succ_lock_text"
+        app:layout_constraintRight_toRightOf="@id/succ_lock_text"
+        app:layout_constraintTop_toBottomOf="@id/succ_lock_text"
+        android:layout_marginTop="@dimen/dp25"
+        />
+
+    <TextView
+        android:id="@+id/lock_exception"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="车位锁异常"
+        android:textColor="#898989"
+        android:textSize="@dimen/sp15"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/dp20"
+        />
+
+
+
+</android.support.constraint.ConstraintLayout>

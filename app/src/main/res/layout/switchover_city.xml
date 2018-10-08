@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include layout="@layout/title_bar" android:id="@+id/title"/>
+
+    <TextView
+        android:id="@+id/present"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前："
+        android:gravity="left"
+        android:textSize="@dimen/sp15"
+        android:textColor="#333333"
+        android:layout_marginLeft="@dimen/dp13"
+        android:layout_marginTop="@dimen/dp18"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        />
+    <TextView
+        android:id="@+id/present_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="南昌"
+        android:gravity="left"
+        android:textSize="@dimen/sp15"
+        android:textColor="#333333"
+        app:layout_constraintLeft_toRightOf="@id/present"
+        app:layout_constraintBottom_toBottomOf="@id/present"
+        />
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp0"
+        app:layout_constraintTop_toBottomOf="@id/present_city"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#ffffff"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:dividerHeight="@dimen/dp1"
+        android:divider="#d2d2d2"
+        >
+
+    </ListView>
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <include layout="@layout/title_bar" android:id="@+id/title_bar"/>
+    <View
+        android:id="@+id/edit_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:background="@drawable/search_edit_bg"
+        app:layout_constraintTop_toBottomOf="@id/title_bar"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_marginRight="@dimen/dp13"
+        android:layout_marginLeft="@dimen/dp13"
+
+        />
+    <EditText
+        android:id="@+id/input_pay_coin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp13"
+        android:layout_marginLeft="@dimen/dp13"
+        android:hint="请输入充值金额"
+        android:textColorHint="#898989"
+        app:layout_constraintTop_toTopOf="@id/edit_bg"
+        app:layout_constraintBottom_toBottomOf="@id/edit_bg"
+        android:paddingLeft="@dimen/dp13"
+        android:textSize="@dimen/sp15"
+        android:background="@null"
+        />
+    <Button
+        android:id="@+id/pay_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_btn"
+        android:layout_marginLeft="@dimen/dp13"
+        android:layout_marginRight="@dimen/dp13"
+        app:layout_constraintTop_toBottomOf="@id/edit_bg"
+        android:layout_marginTop="@dimen/dp50"
+        android:text="充值"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/sp18"
+        />
+
+   <LinearLayout
+       android:id="@+id/pay_confirm"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:visibility="gone"
+       android:orientation="vertical"
+       android:background="#27000000"
+       android:gravity="bottom"
+       >
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/dp200"
+           android:orientation="vertical"
+           android:background="#ffffff"
+           >
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/dp0"
+               android:orientation="horizontal"
+               android:layout_weight="1.5"
+               android:gravity="center_vertical"
+               >
+               <TextView
+                   android:layout_width="@dimen/dp0"
+                   android:layout_height="wrap_content"
+                   android:text="支付"
+                   android:paddingLeft="@dimen/dp24"
+                   android:textColor="#333333"
+                   android:gravity="left"
+                   android:layout_weight="1"
+                   android:textSize="23sp"
+                   />
+               <TextView
+                   android:id="@+id/pay_coin"
+                   android:layout_width="@dimen/dp0"
+                   android:layout_height="wrap_content"
+                   android:text="500.00元"
+                   android:textColor="#333333"
+                   android:layout_weight="1"
+                   android:textSize="23sp"
+                   android:gravity="right"
+                   android:paddingRight="@dimen/dp13"
+                   />
+
+           </LinearLayout>
+
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/dp0"
+               android:orientation="horizontal"
+               android:layout_weight="1"
+               android:background="#f2f2f2"
+               android:gravity="center_vertical"
+               >
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@mipmap/wechatpay"
+                   android:layout_marginLeft="@dimen/dp24"
+                   />
+               <TextView
+                   android:layout_width="@dimen/dp0"
+                   android:layout_height="wrap_content"
+                   android:text="微信支付"
+                   android:textColor="#494949"
+                   android:layout_marginLeft="@dimen/dp15"
+                   android:gravity="left"
+                   android:layout_weight="1"
+                   android:textSize="@dimen/sp12"
+                   />
+               <ImageButton
+                   android:id="@+id/wechat_btn"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/single_btn"
+                   android:background="@null"
+                   android:layout_marginRight="@dimen/dp13"
+                   />
+
+           </LinearLayout>
+
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/dp0"
+               android:orientation="horizontal"
+               android:layout_weight="1"
+               android:gravity="center_vertical"
+               android:background="#f2f2f2"
+               >
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@mipmap/alipay"
+                   android:layout_marginLeft="@dimen/dp24"
+                   />
+               <TextView
+                   android:layout_width="@dimen/dp0"
+                   android:layout_height="wrap_content"
+                   android:text="支付宝支付"
+                   android:textColor="#494949"
+                   android:layout_marginLeft="@dimen/dp15"
+                   android:gravity="left"
+                   android:layout_weight="1"
+                   android:textSize="@dimen/sp12"
+                   />
+               <ImageButton
+                   android:id="@+id/alipay_btn"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/single_btn"
+                   android:background="@null"
+                   android:layout_marginRight="@dimen/dp13"
+                   />
+
+           </LinearLayout>
+
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/dp0"
+               android:orientation="horizontal"
+               android:layout_weight="1.5"
+               android:gravity="center_vertical"
+               >
+               <Button
+                   android:id="@+id/confirm_btn"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:background="@drawable/login_btn"
+                   android:layout_marginTop="@dimen/dp8"
+                   android:layout_marginBottom="@dimen/dp8"
+                   android:text="确认支付500.00元"
+                   android:textColor="#ffffff"
+                   android:textSize="@dimen/sp15"
+                   android:layout_marginRight="@dimen/dp60"
+                   android:layout_marginLeft="@dimen/dp60"
+                   />
+           </LinearLayout>
+
+       </LinearLayout>
+
+
+
+   </LinearLayout>
+</android.support.constraint.ConstraintLayout>

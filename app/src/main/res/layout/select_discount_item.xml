@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp110"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingRight="@dimen/dp14"
+    android:paddingTop="@dimen/dp18"
+    android:paddingBottom="@dimen/dp18"
+    android:paddingLeft="@dimen/dp18"
+    >
+
+    <View
+        android:id="@+id/discount_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/discountcouponcheck"
+        />
+
+    <TextView
+        android:id="@+id/money_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:text="￥"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toStartOf="@+id/money"
+        app:layout_constraintTop_toTopOf="@+id/money" />
+
+    <TextView
+        android:id="@+id/money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp"
+        android:text="5"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/sp20"
+        app:layout_constraintBottom_toBottomOf="@+id/discount_bg"
+        app:layout_constraintStart_toStartOf="@+id/discount_bg"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/time_period_validity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="有效期至"
+        android:textColor="#ffffff"
+        app:layout_constraintLeft_toRightOf="@id/money"
+        app:layout_constraintStart_toEndOf="@+id/money"
+        app:layout_constraintTop_toTopOf="@+id/money_logo"
+        android:layout_marginLeft="@dimen/dp70"
+        />
+
+    <TextView
+        android:id="@+id/period_validity_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2018-09-25"
+        android:textColor="#ffffff"
+        app:layout_constraintStart_toStartOf="@+id/time_period_validity"
+        app:layout_constraintTop_toBottomOf="@+id/time_period_validity" />
+
+    <ImageButton
+        android:id="@+id/discount_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp14"
+        android:background="null"
+        android:src="@drawable/single_btn"
+        app:layout_constraintBottom_toBottomOf="@+id/discount_bg"
+        app:layout_constraintEnd_toEndOf="@+id/discount_bg"
+        app:layout_constraintRight_toRightOf="@id/discount_bg"
+        app:layout_constraintTop_toTopOf="@+id/discount_bg" />
+
+</android.support.constraint.ConstraintLayout>

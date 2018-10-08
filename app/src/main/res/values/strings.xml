@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ParkingSystem</string>
+    <string name="login">登录</string>
+    <string name="hint_mobile_phone">请输入手机号码</string>
+    <string name="hint_password">请输入您的密码</string>
+    <string name="registered">注册</string>
+    <string name="other_login_way">其他登录方式</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="send_verificationcode">发送验证码</string>
+    <string name="input_verification">输入验证码</string>
+    <string name="hint_input_new_password">请输入您的新密码</string>
+    <string name="hint_confirm_password">请再次输入您的密码</string>
+    <string name="confirm">确定</string>
+    <string name="text_forget_password">忘记密码</string>
+    <string name="text_registered">注册</string>
+    <string name="inviter">邀请人</string>
+    <string name="optional">选填</string>
+    <string name="already_have_account">已有账号，去登录</string>
+    <string name="text_bind_phone">绑定手机</string>
+    <string name="search_content">搜索内容</string>
+    <string name="please_search_content">请输入搜索内容</string>
+
+</resources>

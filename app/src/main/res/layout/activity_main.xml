@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/login_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textColor="@color/title"
+        android:textSize="@dimen/sp22"
+        android:layout_marginTop="25dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+
+    <ImageView
+        android:id="@+id/phone"
+        android:layout_width="@dimen/dp18"
+        android:layout_height="@dimen/dp25"
+        android:layout_marginLeft="@dimen/dp50"
+        android:layout_marginTop="@dimen/dp45"
+        android:src="@mipmap/mobilephone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_string" />
+    <EditText
+        android:id="@+id/edit_mobile_phone"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp25"
+        app:layout_constraintTop_toTopOf="@id/phone"
+        app:layout_constraintStart_toStartOf="@id/phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="@dimen/dp30"
+        android:layout_marginRight="@dimen/dp35"
+        android:hint="@string/hint_mobile_phone"
+        android:textColorHint="@color/black"
+        android:background="@null"
+        />
+        <View
+            android:id="@+id/one_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp0.5"
+            android:background="@color/black"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp35"
+            android:layout_marginRight="@dimen/dp35"
+            app:layout_constraintTop_toBottomOf="@id/phone"
+            />
+    <ImageView
+        android:id="@+id/verification"
+        android:layout_width="@dimen/dp18"
+        android:layout_height="@dimen/dp25"
+        android:src="@mipmap/verificationcode"
+        android:layout_marginTop="@dimen/dp20"
+        app:layout_constraintLeft_toLeftOf="@id/phone"
+        app:layout_constraintTop_toBottomOf="@id/one_line"
+
+        />
+
+    <EditText
+        android:id="@+id/edit_input_password"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp25"
+        android:layout_marginLeft="@dimen/dp30"
+        android:layout_marginRight="@dimen/dp35"
+        android:background="@null"
+        android:hint="@string/hint_password"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/verification"
+        app:layout_constraintTop_toTopOf="@+id/verification" />
+
+    <View
+        android:id="@+id/two_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp0.5"
+        android:background="@color/black"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginLeft="@dimen/dp35"
+        android:layout_marginRight="@dimen/dp35"
+        app:layout_constraintTop_toBottomOf="@+id/verification"
+         />
+    <Button
+        android:id="@+id/forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp35"
+        android:layout_marginTop="12dp"
+        android:text="@string/forget_password"
+        android:textColor="@color/button"
+        android:textSize="14sp"
+        android:background="@null"
+        app:layout_constraintTop_toBottomOf="@+id/two_line"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/dp35"
+        />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp35"
+        android:text="@string/login"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:layout_marginTop="@dimen/dp35"
+        android:layout_marginRight="@dimen/dp35"
+        app:layout_constraintTop_toBottomOf="@id/forget_password"
+        android:background="@drawable/login_btn"
+         />
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/registered_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp35"
+        android:text="@string/registered"
+        android:textSize="18sp"
+        android:textColor="#27c38a"
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_marginRight="@dimen/dp35"
+        app:layout_constraintTop_toBottomOf="@id/login_btn"
+        android:background="@drawable/registered_btn"
+        />
+
+    <View
+        android:id="@+id/view_left"
+        android:layout_width="@dimen/dp120"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dp45"
+        android:layout_marginLeft="@dimen/dp30"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/registered_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        />
+    <TextView
+        android:id="@+id/other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/other_login_way"
+        android:textSize="15sp"
+        android:layout_marginTop="@dimen/dp35"
+        app:layout_constraintTop_toBottomOf="@id/registered_btn"
+        app:layout_constraintLeft_toRightOf="@id/view_left"
+        />
+    <View
+        android:id="@+id/view_right"
+        android:layout_width="@dimen/dp120"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dp45"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/registered_btn"
+        app:layout_constraintLeft_toRightOf="@id/other"
+        />
+
+
+    <ImageView
+    android:id="@+id/wechat_login_btn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@mipmap/wechatlogin"
+    android:layout_marginTop="@dimen/dp30"
+    android:layout_marginLeft="@dimen/dp55"
+    app:layout_constraintTop_toBottomOf="@id/view_left"
+    app:layout_constraintHorizontal_chainStyle="spread"
+    app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <ImageView
+        android:id="@+id/qq_login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/qq"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_marginLeft="@dimen/dp55"
+        app:layout_constraintTop_toBottomOf="@id/view_left"
+        app:layout_constraintLeft_toRightOf="@id/wechat_login_btn"
+        />
+    <ImageView
+        android:id="@+id/weibo_login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/sinaweibo"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_marginLeft="@dimen/dp55"
+        app:layout_constraintTop_toBottomOf="@id/view_left"
+        app:layout_constraintLeft_toRightOf="@id/qq_login_btn"
+        />
+
+
+
+</android.support.constraint.ConstraintLayout>

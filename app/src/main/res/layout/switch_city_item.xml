@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp100"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="#f2f2f2"
+        />
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp50"
+        android:text="A"
+        android:gravity="center|left"
+        android:textColor="#494949"
+        android:textSize="@dimen/sp18"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/dp13"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:background="#d2d2d2"
+        app:layout_constraintTop_toBottomOf="@id/item_title"
+        />
+
+
+    <TextView
+        android:id="@+id/item_content"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp50"
+        android:text="A"
+        android:gravity="center|left"
+        android:textColor="#494949"
+        android:textSize="@dimen/sp18"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/dp13"
+        app:layout_constraintTop_toBottomOf="@id/item_title"
+        />
+
+
+
+</android.support.constraint.ConstraintLayout>
