@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 
 public abstract class AbsFragment extends Fragment
+        /**
+         * 测试
+         */
 {
     protected View mView;
     protected Context context;
