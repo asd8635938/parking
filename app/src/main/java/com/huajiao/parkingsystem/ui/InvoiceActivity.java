@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.widget.Toast;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.google.gson.Gson;
@@ -176,8 +175,8 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
           .build();
 
         //pvOptions.setPicker(options1Items);//一级选择器
-        pvOptions.setPicker(options1Items, options2Items);//二级选择器
-        //pvOptions.setPicker(options1Items, options2Items,options3Items);//三级选择器
+//        pvOptions.setPicker(options1Items, options2Items);//二级选择器
+        pvOptions.setPicker(options1Items, options2Items,options3Items);//三级选择器
         pvOptions.show();
     }
 
