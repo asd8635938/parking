@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,6 +74,26 @@ public abstract class BaseActivity extends AppCompatActivity {
             titleView.setText(title);
         }
     }
+    protected  void isShowSaveBtn(int viewType){
+
+        Button btn=findViewById(R.id.save);
+        if(btn!=null){
+            btn.setVisibility(viewType);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    callbackSaveBtn();
+                }
+            });
+        }
+    }
+
+    /**
+     *
+     * 用于保存按钮的回调你可以在里面处理保存按钮的事件
+     */
+    protected void callbackSaveBtn(){}
+
     protected void onBack()
     {
         ActivityStack.getIns().popup(this);

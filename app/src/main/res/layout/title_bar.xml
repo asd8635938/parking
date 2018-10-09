@@ -26,5 +26,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="保存"
+        android:textColor="#ffffff"
+        android:background="@null"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="gone"
+        />
 
 </android.support.constraint.ConstraintLayout>
