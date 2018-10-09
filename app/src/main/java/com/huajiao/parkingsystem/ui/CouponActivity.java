@@ -123,7 +123,7 @@ public class CouponActivity extends BaseActivity {
 
         @Override
         public int getCount() {
-            return 3;
+            return names.length;
         }
 
         @Override
