@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@mipmap/belowtriangle"
-                    android:background="null"
+                    android:background="@null"
                     />
 
             </LinearLayout>
@@ -103,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@mipmap/belowtriangle"
-                    android:background="null"
+                    android:background="@null"
                     />
 
             </LinearLayout>
@@ -167,7 +167,7 @@
                 android:layout_weight="0.5"
                 android:gravity="center|right"
                 android:src="@drawable/switch_btn"
-                android:background="null"
+                android:background="@null"
                 />
 
         </LinearLayout>
@@ -197,7 +197,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:src="@mipmap/belowtriangle"
-                android:background="null"
+                android:background="@null"
                 />
 
         </LinearLayout>
@@ -208,7 +208,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/greenBtn"
+            android:background="@drawable/greenbtn"
             android:layout_marginRight="@dimen/dp60"
             android:layout_marginLeft="@dimen/dp60"
             android:text="预缴费"

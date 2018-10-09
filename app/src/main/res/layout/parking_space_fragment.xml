@@ -25,7 +25,7 @@
                 android:textColor="#ffffff"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dp30"
-                android:background="@drawable/greenBtn"
+                android:background="@drawable/greenbtn"
                 />
         </LinearLayout>
 
@@ -43,7 +43,7 @@
                 android:textColor="#898989"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dp30"
-                android:background="@drawable/greenBtn"
+                android:background="@drawable/greenbtn"
                 />
         </LinearLayout>
     </LinearLayout>

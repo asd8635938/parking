@@ -65,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/dp14"
-        android:background="null"
+        android:background="@null"
         android:src="@drawable/single_btn"
         app:layout_constraintBottom_toBottomOf="@+id/discount_bg"
         app:layout_constraintEnd_toEndOf="@+id/discount_bg"
