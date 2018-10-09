@@ -1,5 +1,7 @@
 package com.huajiao.parkingsystem.ui;
 
+import android.view.View;
+
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
@@ -26,7 +28,7 @@ public class ChargeStandard extends BaseActivity {
      */
     @Override
     protected void initView() {
-
+    isShowSaveBtn(View.VISIBLE);
     }
 
     /***
@@ -43,5 +45,11 @@ public class ChargeStandard extends BaseActivity {
     @Override
     protected void getInternetData() {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        isShowSaveBtn(View.GONE);
     }
 }
