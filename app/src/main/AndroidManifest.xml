@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.huajiao.parkingsystem">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,15 +18,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="OBPLDrQSQmlMGNKzG4YLh45TsZTTLw1g"
-            />
+            android:value="OBPLDrQSQmlMGNKzG4YLh45TsZTTLw1g" />
+
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote" >
-        </service>
+            android:process=":remote"></service>
+
+        <activity
+            android:name=".ui.CouponActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
