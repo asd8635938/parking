@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/title_bar" android:id="@+id/title_bar"/>
+
+
+    <ImageView
+        android:id="@+id/share_qr_code"
+        android:layout_width="@dimen/dp200"
+        android:layout_height="@dimen/dp200"
+        android:layout_marginTop="@dimen/dp20"
+        app:layout_constraintTop_toBottomOf="@id/title_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <View
+        android:id="@+id/view_left"
+        android:layout_width="@dimen/dp120"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dp110"
+        android:layout_marginLeft="@dimen/dp30"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/share_qr_code"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/other"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        />
+    <TextView
+        android:id="@+id/other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="分享到"
+        android:textSize="15sp"
+        app:layout_constraintTop_toTopOf="@id/view_left"
+        app:layout_constraintBottom_toBottomOf="@id/view_left"
+        app:layout_constraintLeft_toRightOf="@id/view_left"
+        app:layout_constraintRight_toLeftOf="@id/view_right"
+        />
+    <View
+        android:id="@+id/view_right"
+        android:layout_width="@dimen/dp120"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="@id/view_left"
+        app:layout_constraintLeft_toRightOf="@id/other"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+
+    <ImageView
+        android:id="@+id/wechat_share_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/sharewechat"
+        android:layout_marginTop="@dimen/dp30"
+        app:layout_constraintTop_toBottomOf="@id/view_left"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/wechat_share_friend_btn"
+            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="微信好友"
+        android:textColor="#222222"
+        android:textSize="@dimen/sp12"
+        app:layout_constraintLeft_toLeftOf="@id/wechat_share_btn"
+        app:layout_constraintRight_toRightOf="@id/wechat_share_btn"
+        app:layout_constraintTop_toBottomOf="@id/wechat_share_btn"
+        android:layout_marginTop="@dimen/dp20"
+        />
+
+    <ImageView
+        android:id="@+id/wechat_share_friend_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/sharefriends"
+        android:layout_marginTop="@dimen/dp30"
+        app:layout_constraintTop_toBottomOf="@id/view_left"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toRightOf="@id/wechat_share_btn"
+        app:layout_constraintRight_toLeftOf="@id/qq_share_btn"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="朋友圈"
+        android:textColor="#222222"
+        android:textSize="@dimen/sp12"
+        app:layout_constraintLeft_toLeftOf="@id/wechat_share_friend_btn"
+        app:layout_constraintRight_toRightOf="@id/wechat_share_friend_btn"
+        app:layout_constraintTop_toBottomOf="@id/wechat_share_friend_btn"
+        android:layout_marginTop="@dimen/dp20"
+        />
+
+    <ImageView
+            android:id="@+id/qq_share_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/share"
+            android:layout_marginTop="@dimen/dp30"
+            app:layout_constraintTop_toBottomOf="@id/view_left"
+            app:layout_constraintLeft_toRightOf="@id/wechat_share_friend_btn"
+            app:layout_constraintRight_toLeftOf="@id/weibo_share_btn"
+            />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QQ好友"
+        android:textColor="#222222"
+        android:textSize="@dimen/sp12"
+        app:layout_constraintLeft_toLeftOf="@id/qq_share_btn"
+        app:layout_constraintRight_toRightOf="@id/qq_share_btn"
+        app:layout_constraintTop_toBottomOf="@id/qq_share_btn"
+        android:layout_marginTop="@dimen/dp20"
+        />
+    <ImageView
+            android:id="@+id/weibo_share_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/shareweibo"
+            android:layout_marginTop="@dimen/dp30"
+            app:layout_constraintTop_toBottomOf="@id/view_left"
+            app:layout_constraintLeft_toRightOf="@id/qq_share_btn"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新浪微博"
+        android:textColor="#222222"
+        android:textSize="@dimen/sp12"
+        app:layout_constraintLeft_toLeftOf="@id/weibo_share_btn"
+        app:layout_constraintRight_toRightOf="@id/weibo_share_btn"
+        app:layout_constraintTop_toBottomOf="@id/weibo_share_btn"
+        android:layout_marginTop="@dimen/dp20"
+        />
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>
