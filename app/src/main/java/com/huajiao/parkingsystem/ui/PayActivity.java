@@ -44,6 +44,12 @@ public class PayActivity extends BaseActivity {
     }
 
     private void initOnClick() {
+        titleName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity(TryCashActivity.class);
+            }
+        });
         titleLife.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

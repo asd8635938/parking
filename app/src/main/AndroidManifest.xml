@@ -40,6 +40,9 @@
         <activity
             android:name=".ui.PayActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.TryCashActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
