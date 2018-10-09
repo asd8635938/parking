@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <include layout="@layout/title_bar" android:id="@+id/title_bar"/>
+
+    <ImageView
+        android:id="@+id/image_apply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/applysubmitsucc"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_bar"
+        android:layout_marginTop="@dimen/dp15"
+        />
+
+    <TextView
+        android:id="@+id/text_already_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="提现申请已提交"
+        android:textSize="@dimen/sp15"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/image_apply"
+        app:layout_constraintLeft_toLeftOf="@id/image_apply"
+        app:layout_constraintRight_toRightOf="@id/image_apply"
+        android:layout_marginTop="@dimen/dp15"
+        />
+
+    <TextView
+        android:id="@+id/text_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="提现审核将在72小时内完成，请耐心等候"
+        android:textSize="@dimen/sp12"
+        android:textColor="#898989"
+        app:layout_constraintTop_toBottomOf="@id/text_already_submit"
+        app:layout_constraintLeft_toLeftOf="@id/image_apply"
+        app:layout_constraintRight_toRightOf="@id/image_apply"
+        android:layout_marginTop="@dimen/dp15"
+        />
+
+    <Button
+        android:id="@+id/back_money_package"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="返回钱包"
+        android:textColor="#7a7a7a"
+        android:padding="@dimen/dp20"
+        android:background="@drawable/down_btn"
+        android:textSize="@dimen/sp14"
+        app:layout_constraintTop_toBottomOf="@id/text_hint"
+        android:layout_marginTop="@dimen/dp150"
+        />
+
+
+</android.support.constraint.ConstraintLayout>
