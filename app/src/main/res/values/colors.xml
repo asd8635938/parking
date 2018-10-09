@@ -9,8 +9,18 @@
     <color name="title">#222222</color>
     <color name="button">#999999</color>
     <color name="title_bg">#2d3e58</color>
+    <color name="white">#FFFFFF</color>
+    <color name="text898989">#898989</color>
 
-
+    <!-- test -->
+    <color name="text889aad">#889aad</color>
+    <color name="seach_background">#ccd9e7</color>
+    <color name="text414042">#414042</color>
+    <color name="bgBackgroud">#e0e3ea</color>
+    <color name="transparent">#00000000</color>
+    <color name="text8b9aad">#8b9aad</color>
+    <color name="backEef3f6">#eef3f6</color>
+    <color name="popup_main_background">#b0000000</color>
 
 
 </resources>
