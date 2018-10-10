@@ -1,42 +1,37 @@
-package com.huajiao.parkingsystem;
+package com.huajiao.parkingsystem.ui;
 
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.huajiao.parkingsystem.MainActivity;
+import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
-import com.huajiao.parkingsystem.ui.BindCarNumber;
-import com.huajiao.parkingsystem.ui.BindPhone;
-import com.huajiao.parkingsystem.ui.CouponActivity;
-import com.huajiao.parkingsystem.ui.ForgetPasswordActivty;
-import com.huajiao.parkingsystem.ui.HomePageActivity;
-import com.huajiao.parkingsystem.ui.RegisteredActivity;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
-
+public class AlterPasswordActivty extends BaseActivity implements View.OnClickListener{
     private EditText mMobileEt;
-    private EditText mPasswordEt;
-    private Button mForgetPasswordBt;
-    private Button mLoginBt;
-    private Button mRegisteredBt;
-    private ImageView mWeChatLoginIv;
-    private ImageView mQQLoginIv;
-    private ImageView mWeiBoLoginIv;
+    private EditText mVerificationEt;
+    private EditText mNewPasswordEt;
+    private EditText mConfirmPasswordEt;
+    private Button mSendVerificationBt;
+    private Button mConfirmBt;
 
     private String mobile;
+    private String verification;
     private String password;
+    private String confirmPassword;
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
      */
     @Override
     protected int getViewContentId() {
-        return R.layout.activity_main;
+        return R.layout.alter_password;
     }
+
     /**
      * 在这里初始化你的数据 ps:总在initView之前调用
      */
@@ -44,36 +39,36 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void initData() {
 
     }
+
     /**
      * 在这里初始化你的控件引用
      */
     @Override
     protected void initView() {
-        mMobileEt=findViewById(R.id.edit_mobile_phone);
-        mPasswordEt=findViewById(R.id.edit_input_password);
-        mForgetPasswordBt=findViewById(R.id.forget_password);
-        mLoginBt=findViewById(R.id.login_btn);
-        mRegisteredBt=findViewById(R.id.registered_btn);
-        mWeChatLoginIv=findViewById(R.id.wechat_login_btn);
-        mQQLoginIv=findViewById(R.id.qq_login_btn);
-        mWeiBoLoginIv=findViewById(R.id.weibo_login_btn);
+          mMobileEt=findViewById(R.id.edit_mobile_phone);
+          mVerificationEt=findViewById(R.id.edit_verification_code);
+          mNewPasswordEt=findViewById(R.id.edit_input_news_password);
+          mConfirmPasswordEt=findViewById(R.id.edit_confirm_password);
+          mSendVerificationBt=findViewById(R.id.send_verificaton_code);
+          mConfirmBt=findViewById(R.id.confirm_btn);
     }
+
 
     /***
      * 在这里添加你的控件的任何事件绑定
      */
     @Override
     protected void bindEvent() {
-        mForgetPasswordBt.setOnClickListener(this);
-        mLoginBt.setOnClickListener(this);
-        mRegisteredBt.setOnClickListener(this);
-        mWeChatLoginIv.setOnClickListener(this);
-        mQQLoginIv.setOnClickListener(this);
-        mWeiBoLoginIv.setOnClickListener(this);
         mMobileEt.addTextChangedListener(new ClassOfTextWatcher(mMobileEt));
+        mVerificationEt.addTextChangedListener(new ClassOfTextWatcher(mVerificationEt));
+        mNewPasswordEt.addTextChangedListener(new ClassOfTextWatcher(mNewPasswordEt));
+        mConfirmPasswordEt.addTextChangedListener(new ClassOfTextWatcher(mConfirmPasswordEt));
         setCursorToEnd(mMobileEt);
-        mPasswordEt.addTextChangedListener(new ClassOfTextWatcher(mPasswordEt));
-        setCursorToEnd(mPasswordEt);
+        setCursorToEnd(mVerificationEt);
+        setCursorToEnd(mNewPasswordEt);
+        setCursorToEnd(mConfirmPasswordEt);
+        mConfirmBt.setOnClickListener(this);
+        mSendVerificationBt.setOnClickListener(this);
     }
 
     /**
@@ -84,7 +79,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-
     /**
      * Called when a view has been clicked.
      *
@@ -94,26 +88,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId())
         {
-            case R.id.forget_password:
-                openActivity(ForgetPasswordActivty.class);
+            case R.id.send_verificaton_code:
                 break;
-            case R.id.login_btn:
-                openActivity(HomePageActivity.class);
+            case R.id.confirm_btn:
+                openActivity(MainActivity.class);
                 break;
-            case R.id.registered_btn:
-                openActivity(RegisteredActivity.class);
-                break;
-            case R.id.wechat_login_btn:
-                openActivity(BindPhone.class);
-                break;
-            case R.id.qq_login_btn:
-                openActivity(BindPhone.class);
-                break;
-            case R.id.weibo_login_btn:
-                openActivity(BindPhone.class);
-                break;
-
-
         }
     }
 
@@ -147,8 +126,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     case R.id.edit_mobile_phone:
                         mobile=s.toString();
                         break;
-                    case R.id.edit_input_password:
+                    case R.id.edit_verification_code:
+                        verification=s.toString();
+                        break;
+                    case R.id.edit_input_news_password:
                         password=s.toString();
+                        break;
+                    case R.id.edit_confirm_password:
+                        confirmPassword=s.toString();
                         break;
                 }
             }

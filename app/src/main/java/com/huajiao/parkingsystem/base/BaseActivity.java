@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.huajiao.parkingsystem.R;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -74,11 +75,35 @@ public abstract class BaseActivity extends AppCompatActivity {
             titleView.setText(title);
         }
     }
+
+    /**
+     *
+     * @param viewType {控制是否显示右边的按钮}
+     *  使用示例  isShowSaveBtn(View.GONE)
+     */
     protected  void isShowSaveBtn(int viewType){
 
         Button btn=findViewById(R.id.save);
         if(btn!=null){
             btn.setVisibility(viewType);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    callbackSaveBtn();
+                }
+            });
+        }
+    }
+
+    /**
+     *
+     * @param s{当前按钮的文字}
+     */
+    protected  void setShowSaveBtnText(String s){
+
+        Button btn=findViewById(R.id.save);
+        if(btn!=null){
+            btn.setText(s);
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f2f2f2"
+    >
+
+    <include layout="@layout/title_bar" android:id="@+id/title_bar"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/title_bg"
+        >
+
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp30"
+            android:layout_marginBottom="@dimen/dp30"
+            android:orientation="vertical"
+            android:layout_width="@dimen/dp0"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="账户余额"
+                android:layout_marginLeft="@dimen/dp13"
+                />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="￥"
+                    android:textColor="#27c38a"
+                    android:layout_marginLeft="@dimen/dp13"
+                    />
+                <TextView
+                    android:id="@+id/account_coin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2080"
+                    android:textSize="@dimen/sp20"
+                    android:textColor="#27c38a"
+                    android:layout_marginLeft="@dimen/dp13"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:orientation="vertical"
+            android:layout_width="@dimen/dp0"
+            android:layout_weight="1"
+            android:gravity="center|right"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_marginTop="@dimen/dp30"
+                android:layout_marginBottom="@dimen/dp30"
+                android:id="@+id/running_record_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp30"
+                android:background="@drawable/runningbtn"
+                android:layout_marginRight="@dimen/dp15"
+                android:text="流水记录"
+                android:textColor="#27c38a"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pay_coin"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:background="#ffffff"
+        android:layout_height="@dimen/dp50">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="充值"
+            android:textColor="#222222"
+            android:textSize="@dimen/sp15"
+            android:layout_marginLeft="@dimen/dp13"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="11"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/right"
+            android:layout_marginRight="@dimen/dp13"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        />
+
+    <LinearLayout
+        android:id="@+id/withdrawal"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:background="#ffffff"
+        android:layout_height="@dimen/dp50">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提现"
+            android:textColor="#222222"
+            android:textSize="@dimen/sp15"
+            android:layout_marginLeft="@dimen/dp13"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="11"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/right"
+            android:layout_marginRight="@dimen/dp13"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp10"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/coupons"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:background="#ffffff"
+        android:layout_height="@dimen/dp50">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="优惠券"
+            android:textColor="#222222"
+            android:textSize="@dimen/sp15"
+            android:layout_marginLeft="@dimen/dp13"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="11"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/right"
+            android:layout_marginRight="@dimen/dp13"
+            />
+    </LinearLayout>
+
+</LinearLayout>

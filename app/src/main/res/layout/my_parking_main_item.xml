@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp30"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:layout_height="@dimen/dp30">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#898989"
+            android:gravity="center"
+            android:text="使用者"
+            android:textSize="@dimen/sp12"
+            />
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#898989"
+            android:gravity="center"
+            android:text="使用时长"
+            android:textSize="@dimen/sp12"
+            />
+        <TextView
+            android:id="@+id/cost"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#898989"
+            android:gravity="center"
+            android:text="费用"
+            android:textSize="@dimen/sp12"
+            />
+        <TextView
+            android:id="@+id/state"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#898989"
+            android:gravity="center"
+            android:text="使用中"
+            android:textSize="@dimen/sp12"
+            />
+    </LinearLayout>
+
+</LinearLayout>

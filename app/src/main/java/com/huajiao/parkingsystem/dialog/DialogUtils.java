@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -46,6 +47,63 @@ public class DialogUtils {
         }
         if (content != null) {
             tvContent.setText(content);
+        }
+
+        cancel_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.LeftClick(dialog);
+            }
+        });
+
+        confirm_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.RightClick(dialog);
+            }
+        });
+        dialog.show();
+    }
+
+    /**
+     *
+     * @param isShowType {用来判断是否显示车位类型}
+     * @param context
+     * @param width
+     * @param title
+     * @param content
+     * @param listener
+     */
+    public static void showMyParkingDialog(boolean isShowType,Context context,int width ,String title, String content, final ShowDialogCallBack listener) {
+        View dialogview = LayoutInflater.from(context).inflate(R.layout.my_parking_dialog, null);
+        final Dialog dialog = new Dialog(context, R.style.dialog_bg_style);
+        //设置view
+        dialog.setContentView(dialogview);
+        dialog.setCanceledOnTouchOutside(false);
+        //dialog默认是环绕内容的
+        //通过window来设置位置、高宽
+        Window window = dialog.getWindow();
+        WindowManager.LayoutParams windowparams = window.getAttributes();
+        windowparams.width = width;
+
+        TextView confirm_tv = (TextView) dialogview.findViewById(R.id.confirm_tv);
+        TextView cancel_tv = (TextView) dialogview.findViewById(R.id.cancel_tv);
+        TextView tvTitle = (TextView) dialogview.findViewById(R.id.title);
+
+        EditText edit_parking_type =dialogview.findViewById(R.id.edit_parking_type);
+
+        EditText edit_parking_number =dialogview.findViewById(R.id.edit_parking_number);
+
+        if (isShowType) {
+            edit_parking_type.setVisibility(View.VISIBLE);
+            edit_parking_number.setVisibility(View.GONE);
+        } else {
+            edit_parking_type.setVisibility(View.GONE);
+            edit_parking_number.setVisibility(View.VISIBLE);
+        }
+
+        if (title != null) {
+            tvTitle.setText(title);
         }
 
         cancel_tv.setOnClickListener(new View.OnClickListener() {
