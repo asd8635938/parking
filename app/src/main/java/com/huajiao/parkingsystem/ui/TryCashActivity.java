@@ -84,6 +84,12 @@ public class TryCashActivity extends BaseActivity {
     }
 
     private void initOnClick() {
+        titleName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity(InvoiceListActivity.class);
+            }
+        });
         titleLife.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

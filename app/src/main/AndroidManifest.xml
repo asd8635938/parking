@@ -91,6 +91,9 @@
         <activity
             android:name=".ui.TryCashActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.InvoiceListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
