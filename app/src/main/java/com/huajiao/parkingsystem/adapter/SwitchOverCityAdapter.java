@@ -74,30 +74,61 @@ public class SwitchOverCityAdapter extends BaseAdapter {
         }
         mData = mList.get(position);
 //        根据position获取首字母作为目录catalog
-          String catalog = mList.get(position).getFirstLetter();
-//         如果当前位置等于该分类首字母的Char的位置 ，则认为是第一次出现
-         if(position == getPositionForSection(catalog)){
-             parkingView.title.setVisibility(View.VISIBLE);
-             parkingView.title.setText(mData.getFirstLetter().toUpperCase());
-          }
-         else{
-             parkingView.title.setVisibility(View.GONE);
-          }
+//          String catalog = mList.get(position).getFirstLetter();
+        int section = getSectionForPosition(position);
+
+        //如果当前位置等于该分类首字母的Char的位置 ，则认为是第一次出现
+        if(position == getPositionForSection(section)){
+            parkingView.title.setVisibility(View.VISIBLE);
+            parkingView.title.setText(mData.getFristA());
+        }else{
+            parkingView.title.setVisibility(View.GONE);
+        }
         parkingView.content.setText(mList.get(position).getName());
 
         return convertView;
     }
 
+
     /**
-     * 获取catalog首次出现位置
+     * 根据ListView的当前位置获取分类的首字母的Char ascii值
      */
-    public int getPositionForSection(String catalog) {
+    public int getSectionForPosition(int position) {
+        return mList.get(position).getFristA().charAt(0);
+    }
+
+    /**
+     * 根据分类的首字母的Char ascii值获取其第一次出现该首字母的位置
+     */
+    public int getPositionForSection(int section) {
         for (int i = 0; i < getCount(); i++) {
-            String sortStr = mList.get(i).getFirstLetter();
-            if (catalog.equalsIgnoreCase(sortStr)) {
+            String sortStr = mList.get(i).getFristA();
+            char firstChar = sortStr.toUpperCase().charAt(0);
+            if (firstChar == section) {
                 return i;
             }
         }
+
         return -1;
+    }
+
+    /**
+     * 提取英文的首字母，非英文字母用#代替。
+     *
+     * @param str
+     * @return
+     */
+    private String getAlpha(String str) {
+        String  sortStr = str.trim().substring(0, 1).toUpperCase();
+        // 正则表达式，判断首字母是否是英文字母
+        if (sortStr.matches("[A-Z]")) {
+            return sortStr;
+        } else {
+            return "#";
+        }
+    }
+
+    public Object[] getSections() {
+        return null;
     }
 }

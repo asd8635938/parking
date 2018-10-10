@@ -157,7 +157,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         intent.addFlags(launchModel);
         this.openActivity(intent);
     }
-    private void openActivity(Intent intent){
+    protected void openActivity(Intent intent){
         this.startActivity(intent);
     }
 

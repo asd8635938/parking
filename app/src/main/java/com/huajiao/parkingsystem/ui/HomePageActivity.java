@@ -168,11 +168,12 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         switch (v.getId())
         {
             case R.id.location_text:
-                // 弹出选择列表框
-                showSelectDialog();
+                // 跳转切换城市页面
+                openActivity(SwitchOverCity.class);
                 break;
             case R.id.image_message:
                 // 跳转消息页面
+                openActivity(SystemeMessageActivity.class);
                 break;
             case R.id.goto_details:
                 // 跳转详情页面 要做区分
@@ -241,11 +242,9 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
     // 关闭banner图
     private void closeBanner() {
         mBannerView.setVisibility(View.GONE);
+        mImageCloseBanner.setVisibility(View.GONE);
     }
 
-    //  显示地区选择框
-    private void showSelectDialog() {
-    }
 
 
 

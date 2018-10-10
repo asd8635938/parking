@@ -1,6 +1,8 @@
 package com.huajiao.parkingsystem.Ben;
 
-public class SystemeMessageData {
+import java.io.Serializable;
+
+public class SystemeMessageData implements Serializable {
     private String name;  // 名称
     private String time; // 时间
     private String content; // 内容

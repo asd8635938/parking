@@ -64,6 +64,19 @@
             />
 
         <activity
+            android:name=".ui.SwitchOverCity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.SystemeMessageActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.SystemeMessageDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+
+        <activity
             android:name=".ui.CouponActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
