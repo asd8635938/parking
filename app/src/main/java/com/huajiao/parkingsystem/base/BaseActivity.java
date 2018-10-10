@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.huajiao.parkingsystem.R;
 
 public abstract class BaseActivity extends AppCompatActivity {

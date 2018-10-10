@@ -9,8 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.huajiao.parkingsystem.base.BaseActivity;
+import com.huajiao.parkingsystem.ui.BindCarNumber;
+import com.huajiao.parkingsystem.ui.BindPhone;
 import com.huajiao.parkingsystem.ui.CouponActivity;
 import com.huajiao.parkingsystem.ui.ForgetPasswordActivty;
+import com.huajiao.parkingsystem.ui.HomePageActivity;
 import com.huajiao.parkingsystem.ui.RegisteredActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -95,19 +98,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 openActivity(ForgetPasswordActivty.class);
                 break;
             case R.id.login_btn:
-                openActivity(CouponActivity.class);
+                openActivity(HomePageActivity.class);
                 break;
             case R.id.registered_btn:
                 openActivity(RegisteredActivity.class);
                 break;
             case R.id.wechat_login_btn:
-                showToast("暂为实现");
+                openActivity(BindPhone.class);
                 break;
             case R.id.qq_login_btn:
-                showToast("暂为实现");
+                openActivity(BindPhone.class);
                 break;
             case R.id.weibo_login_btn:
-                showToast("暂为实现");
+                openActivity(BindPhone.class);
                 break;
 
 

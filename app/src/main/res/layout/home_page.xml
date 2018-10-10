@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <include layout="@layout/home_page_title" android:id="@+id/title"/>
 
 
     <com.baidu.mapapi.map.MapView
         android:id="@+id/baidu_map"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/title"
-        app:layout_constraintTop_toBottomOf="@id/title">
+        android:layout_height="match_parent"
+        />
+    <include layout="@layout/home_page_title" android:id="@+id/title"/>
 
-    </com.baidu.mapapi.map.MapView>
     <include layout="@layout/parkingstate"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp50"

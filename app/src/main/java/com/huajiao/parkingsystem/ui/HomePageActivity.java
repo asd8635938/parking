@@ -1,8 +1,9 @@
 package com.huajiao.parkingsystem.ui;
 
 import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.provider.ContactsContract;
 import android.support.constraint.ConstraintLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,12 +12,42 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.MyLocationConfiguration;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
-public class HomePageActivity extends BaseActivity implements View.OnClickListener {
+public class HomePageActivity extends BaseActivity implements View.OnClickListener,SensorEventListener {
+
+    // 定位相关
+    LocationClient mLocClient; // 定位客户端
+    public MyLocationListenner myListener = new MyLocationListenner();
+    private MyLocationConfiguration.LocationMode mCurrentMode;
+    BitmapDescriptor mCurrentMarker;
+
+    private static final int accuracyCircleFillColor = 0xAAFFFF88;
+    private static final int accuracyCircleStrokeColor = 0xAA00FF00;
+    private SensorManager mSensorManager; // 重力传感器相关
+    private Double lastX = 0.0;
+    private int mCurrentDirection = 0;
+    private double mCurrentLat = 0.0;
+    private double mCurrentLon = 0.0;
+    private float mCurrentAccracy;
+    private boolean isFirstLoc = true; // 是否第一次定位
+    private MyLocationData locData;
+    private LatLng oneSelf;
+
+
     private TextView mLocationText; // 用作按钮功能 ps：作用是列表选择按钮
 
     private TextView mStateText;
@@ -76,9 +107,15 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         mPersonaBtn=findViewById(R.id.persona_btn);
         mScanning=findViewById(R.id.scanning);
         mEditSearch=findViewById(R.id.edit_search);
-        // 百度地图使用形式比较特殊 不设置点击事件 ps相当于一个布局容器
+//         百度地图使用形式比较特殊 不设置点击事件 ps相当于一个布局容器
         mMapView=findViewById(R.id.baidu_map);
         mBaiduMap=mMapView.getMap();
+        mBaiduMap=mMapView.getMap();
+
+        mCurrentMarker = null;
+        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);//获取传感器管理服务
+        showMapView();
+        showOneselfLocation();
     }
 
     /***
@@ -164,13 +201,41 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         }
 
     }
+
+    private void showMapView() {
+        mBaiduMap = mMapView.getMap();
+        mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+        // 开启定位图层
+        mBaiduMap.setMyLocationEnabled(true);
+        // 定位初始化
+        mLocClient = new LocationClient(this);
+        mLocClient.registerLocationListener(myListener);
+        LocationClientOption option = new LocationClientOption();
+        option.setOpenGps(true); // 打开gps
+        option.setCoorType("bd09ll"); // 设置坐标类型
+        option.setScanSpan(1000);
+        mLocClient.setLocOption(option);
+        mLocClient.start();
+
+    }
+
+    private void showOneselfLocation() {
+        mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;
+        mBaiduMap.setMyLocationConfiguration(new MyLocationConfiguration(
+                mCurrentMode, true, mCurrentMarker,
+                accuracyCircleFillColor, accuracyCircleStrokeColor));
+    }
     // 百度地图移动到自己当前的位置
     private void followOneself() {
+        mCurrentMode = MyLocationConfiguration.LocationMode.FOLLOWING;
+        mBaiduMap.setMyLocationConfigeration
+                (new MyLocationConfiguration(mCurrentMode, true, null));
     }
 
     // 刷新百度地图自己的位置
     private void refreshLocation() {
-
+        mBaiduMap.setMyLocationEnabled(true);
+        mLocClient.start();
     }
 
     // 关闭banner图
@@ -196,26 +261,83 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         mMapView.onResume();
         super.onResume();
         //为系统的方向传感器注册监听器
-//        mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
-//                SensorManager.SENSOR_DELAY_UI);
+        mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
+                SensorManager.SENSOR_DELAY_UI);
     }
 
     @Override
     protected void onStop() {
         //取消注册传感器监听
-//        mSensorManager.unregisterListener(this);
+        mSensorManager.unregisterListener(this);
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
         // 退出时销毁定位
-//        mLocClient.stop();
-        // 关闭定位图层
+        mLocClient.stop();
+//         关闭定位图层
         mBaiduMap.setMyLocationEnabled(false);
         mMapView.onDestroy();
         mMapView = null;
         super.onDestroy();
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        double x = event.values[SensorManager.DATA_X];
+        if (Math.abs(x - lastX) > 1.0) {
+            mCurrentDirection = (int) x;
+            locData = new MyLocationData.Builder()
+                    .accuracy(mCurrentAccracy)
+                    // 此处设置开发者获取到的方向信息，顺时针0-360
+                    .direction(mCurrentDirection).latitude(mCurrentLat)
+                    .longitude(mCurrentLon).build();
+            mBaiduMap.setMyLocationData(locData);
+        }
+        lastX = x;
+    }
+
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+
+    /**
+     * 定位SDK监听函数
+     */
+    public class MyLocationListenner implements BDLocationListener {
+
+        @Override
+        public void onReceiveLocation(BDLocation location) {
+            // map view 销毁后不在处理新接收的位置
+            if (location == null || mMapView == null) {
+                return;
+            }
+            mCurrentLat = location.getLatitude();
+            mCurrentLon = location.getLongitude();
+            mCurrentAccracy = location.getRadius();
+            locData = new MyLocationData.Builder()
+                    .accuracy(location.getRadius())
+                    // 此处设置开发者获取到的方向信息，顺时针0-360
+                    .direction(mCurrentDirection).latitude(location.getLatitude())
+                    .longitude(location.getLongitude()).build();
+            mBaiduMap.setMyLocationData(locData);
+            oneSelf = new LatLng(location.getLatitude(),
+                    location.getLongitude());
+            if (isFirstLoc) {
+                isFirstLoc = false;
+                MapStatus.Builder builder = new MapStatus.Builder();
+                builder.target(oneSelf).zoom(18.0f);
+                mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+            }
+
+        }
+
+        public void onReceivePoi(BDLocation poiLocation) {
+        }
     }
 
 }
