@@ -2,10 +2,12 @@ package com.huajiao.parkingsystem.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -128,6 +130,19 @@ public class DialogUtils {
         void RightClick(Dialog dialog);
     }
 
+    public interface ShowCameraCallBack {
+        void TopClick(Dialog dialog);
+
+        void CenterClick(Dialog dialog);
+        void CancelClick(Dialog dialog);
+    }
+
+    public interface ShowGenderCallBack {
+        void ManClick(Dialog dialog);
+
+        void femaleClick(Dialog dialog);
+    }
+
     public static int dip2px(Context ctx, int dpValue) {
         float scale = ctx.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
@@ -136,5 +151,106 @@ public class DialogUtils {
     public static int px2dip(Context ctx, int pxValue) {
         float scale = ctx.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
+    }
+
+
+
+    public static void showBasicDialog(Context context,int width , final ShowDialogCallBack listener) {
+        View dialogview = LayoutInflater.from(context).inflate(R.layout.basic_dialog, null);
+        final Dialog dialog = new Dialog(context, R.style.dialog_bg_style);
+        //设置view
+        dialog.setContentView(dialogview);
+        dialog.setCanceledOnTouchOutside(false);
+        //dialog默认是环绕内容的
+        //通过window来设置位置、高宽
+        Window window = dialog.getWindow();
+        WindowManager.LayoutParams windowparams = window.getAttributes();
+        windowparams.width = width;
+        windowparams.gravity= Gravity.CENTER;
+        EditText edit_text = dialogview.findViewById(R.id.edit_text);
+        Button confirm_tv =  dialogview.findViewById(R.id.confirm_btn);
+        Button cancel_tv =  dialogview.findViewById(R.id.cancel_btn);
+
+        cancel_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.LeftClick(dialog);
+            }
+        });
+
+        confirm_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.RightClick(dialog);
+            }
+        });
+        dialog.show();
+    }
+
+    public static void showSelectCameraDialog(Context context,int width , final ShowCameraCallBack listener) {
+        View dialogview = LayoutInflater.from(context).inflate(R.layout.header_select_dialog, null);
+        final Dialog dialog = new Dialog(context, R.style.dialog_bg_style);
+        //设置view
+        dialog.setContentView(dialogview);
+        dialog.setCanceledOnTouchOutside(false);
+        //dialog默认是环绕内容的
+        //通过window来设置位置、高宽
+        Window window = dialog.getWindow();
+        WindowManager.LayoutParams windowparams = window.getAttributes();
+        windowparams.width = width;
+        windowparams.gravity= Gravity.BOTTOM;
+
+        TextView photograph=dialogview.findViewById(R.id.photograph);
+        TextView select_camera=dialogview.findViewById(R.id.select_camera);
+        TextView cancel=dialogview.findViewById(R.id.cancel);
+        photograph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            listener.TopClick(dialog);
+            }
+        });
+        select_camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            listener.CenterClick(dialog);
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                listener.CancelClick(dialog);
+            }
+        });
+        dialog.show();
+    }
+
+    public static void showSelectGenderDialog(Context context,int width , final ShowGenderCallBack listener) {
+        View dialogview = LayoutInflater.from(context).inflate(R.layout.gender_select_dialog, null);
+        final Dialog dialog = new Dialog(context, R.style.dialog_bg_style);
+        //设置view
+        dialog.setContentView(dialogview);
+        dialog.setCanceledOnTouchOutside(false);
+        //dialog默认是环绕内容的
+        //通过window来设置位置、高宽
+        Window window = dialog.getWindow();
+        WindowManager.LayoutParams windowparams = window.getAttributes();
+        windowparams.width = width;
+        windowparams.gravity= Gravity.BOTTOM;
+        TextView man=dialogview.findViewById(R.id.man);
+        TextView female=dialogview.findViewById(R.id.female);
+        man.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.ManClick(dialog);
+            }
+        });
+        female.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.femaleClick(dialog);
+            }
+        });
+        dialog.show();
     }
 }

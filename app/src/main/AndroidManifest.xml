@@ -92,7 +92,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             />
         <activity
-            android:name=".ui.WeCenter"
+            android:name=".ui.WeCenterActivity"
             android:theme="@style/AppTheme.NoActionBar"
             />
         <activity
@@ -109,6 +109,22 @@
             />
         <activity
             android:name=".ui.BasicDataActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.MyMoneyPackageActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.RunningRecordActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.PayPageActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.WithdrawalActivity"
             android:theme="@style/AppTheme.NoActionBar"
             />
 

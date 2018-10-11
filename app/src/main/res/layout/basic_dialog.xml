@@ -1,36 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    >
+  >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp160"
+        android:layout_height="@dimen/dp140"
         android:orientation="vertical"
         android:layout_marginLeft="@dimen/dp20"
         android:layout_marginRight="@dimen/dp20"
         android:gravity="center_horizontal"
         android:background="@drawable/registered_btn"
         >
-        <TextView
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textSize="@dimen/sp20"
-            android:textColor="#333333"
-            android:layout_marginTop="@dimen/dp15"
-            android:text="提示"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:textColor="#898989"
             android:textSize="@dimen/sp16"
             android:layout_marginTop="@dimen/dp20"
-            android:text="请先绑定车牌号"
+            android:hint="请输入内容"
+            android:background="@null"
             />
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,18 +40,18 @@
                 android:layout_height="match_parent"
                 android:text="取消"
                 android:textSize="@dimen/sp15"
-                android:textColor="#606060"
-                android:background="@drawable/cancel_btn"
+                android:textColor="#898989"
+                android:background="@null"
                 />
             <Button
-                android:id="@+id/bind_btn"
+                android:id="@+id/confirm_btn"
                 android:layout_width="@dimen/dp0"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="去绑定"
-                android:textColor="#ffffff"
+                android:text="确定"
+                android:textColor="#333333"
                 android:textSize="@dimen/sp15"
-                android:background="@drawable/bind_btn"
+                android:background="@null"
                 />
         </LinearLayout>
 

@@ -96,13 +96,6 @@ public class CouponActivity extends BaseActivity {
                 finish();
             }
         });
-
-        titleName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openActivity(AppointmentActivity.class);
-            }
-        });
     }
 
     @Override

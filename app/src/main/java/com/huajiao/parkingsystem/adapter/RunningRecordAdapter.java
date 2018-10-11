@@ -66,7 +66,7 @@ public class RunningRecordAdapter extends BaseAdapter {
             convertView=LayoutInflater.from(context).inflate(R.layout.running_record_item,null);
             parkingView.matter=convertView.findViewById(R.id.matters);
             parkingView.time=convertView.findViewById(R.id.time);
-            parkingView.coin=convertView.findViewById(R.id.state);
+            parkingView.coin=convertView.findViewById(R.id.coin);
             convertView.setTag(parkingView);
         }else {
             parkingView = (ViewHolder) convertView.getTag();

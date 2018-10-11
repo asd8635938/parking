@@ -3,14 +3,14 @@ package com.huajiao.parkingsystem.ui;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
-public class PayPage extends BaseActivity {
+public class WithdrawalActivity extends BaseActivity {
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
      */
     @Override
     protected int getViewContentId() {
-        return R.layout.pay_page;
+        return R.layout.withdrawal;
     }
 
     /**
