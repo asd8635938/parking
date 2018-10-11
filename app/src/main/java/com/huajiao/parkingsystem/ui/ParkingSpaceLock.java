@@ -1,9 +1,18 @@
 package com.huajiao.parkingsystem.ui;
 
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
-public class ParkingSpaceLock extends BaseActivity {
+public class ParkingSpaceLock extends BaseActivity implements View.OnClickListener{
+
+    ImageView  advertising;
+    TextView   chargeRules;
+    Button     dropBtn;
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
@@ -26,7 +35,9 @@ public class ParkingSpaceLock extends BaseActivity {
      */
     @Override
     protected void initView() {
-
+        advertising = findViewById(R.id.advertising);
+        chargeRules=findViewById(R.id.charge_rules_content);
+        dropBtn=findViewById(R.id.drop_btn);
     }
 
     /***
@@ -34,7 +45,7 @@ public class ParkingSpaceLock extends BaseActivity {
      */
     @Override
     protected void bindEvent() {
-
+        dropBtn.setOnClickListener(this);
     }
 
     /**
@@ -43,5 +54,19 @@ public class ParkingSpaceLock extends BaseActivity {
     @Override
     protected void getInternetData() {
 
+    }
+
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v The view that was clicked.
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.drop_btn:
+                openActivity(ScannerActivity.class);
+                break;
+        }
     }
 }

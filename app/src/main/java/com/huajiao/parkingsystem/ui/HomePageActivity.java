@@ -182,7 +182,7 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.scanning:
                 // 跳转到车位锁页面
-
+                openActivity(ParkingSpaceLock.class);
                 break;
             case R.id.round_bg:
                 // 跳转到搜索页面

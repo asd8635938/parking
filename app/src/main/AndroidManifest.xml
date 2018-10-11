@@ -79,6 +79,16 @@
             android:name=".ui.SearchActivity"
             android:theme="@style/AppTheme.NoActionBar"
             />
+        <activity
+            android:name=".ui.ParkingSpaceLock"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.ScannerActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+
+
 
         <activity
             android:name=".ui.CouponActivity"

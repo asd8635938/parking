@@ -44,6 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
     <Button
+        android:id="@+id/drop_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@mipmap/droplock"
