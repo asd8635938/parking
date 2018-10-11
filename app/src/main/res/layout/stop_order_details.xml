@@ -195,10 +195,10 @@
         android:layout_height="@dimen/dp0">
 
         <LinearLayout
-            android:visibility="gone"
             android:id="@+id/use_layout"
             android:orientation="vertical"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="match_parent">
 
             <View

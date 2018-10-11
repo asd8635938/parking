@@ -44,6 +44,7 @@ public class WeCenterActivity extends BaseActivity implements View.OnClickListen
     protected void initView() {
         center_image=findViewById(R.id.center_image);
         my_money_package=findViewById(R.id.my_money_package);
+        my_record=findViewById(R.id.my_record);
     }
 
     /***
@@ -53,6 +54,7 @@ public class WeCenterActivity extends BaseActivity implements View.OnClickListen
     protected void bindEvent() {
         center_image.setOnClickListener(this);
         my_money_package.setOnClickListener(this);
+        my_record.setOnClickListener(this);
     }
 
     /**
@@ -76,6 +78,9 @@ public class WeCenterActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.my_money_package:
                 openActivity(MyMoneyPackageActivity.class);
+                break;
+            case R.id.my_record:
+                openActivity(StopParkingRecordActivity.class);
                 break;
         }
     }

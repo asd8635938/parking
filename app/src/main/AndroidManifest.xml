@@ -127,6 +127,18 @@
             android:name=".ui.WithdrawalActivity"
             android:theme="@style/AppTheme.NoActionBar"
             />
+        <activity
+            android:name=".ui.StopParkingRecordActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.StopParkingOrderActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.StopOrderDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
 
 
 

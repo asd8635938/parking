@@ -91,7 +91,7 @@ public class ParkingDetailsAdapter extends BaseAdapter {
         parkingView.state.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                click.clickBack(mData);
+                click.clickBack(mList.get(position));
             }
         });
 

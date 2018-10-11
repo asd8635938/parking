@@ -1,6 +1,8 @@
 package com.huajiao.parkingsystem.Ben;
 
-public class StopParkingOrderData {
+import java.io.Serializable;
+
+public class StopParkingOrderData implements Serializable{
       private String time;
       private boolean isUse;
 
