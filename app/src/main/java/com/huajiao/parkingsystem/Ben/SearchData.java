@@ -1,6 +1,8 @@
 package com.huajiao.parkingsystem.Ben;
 
-public class SearchData {
+import java.io.Serializable;
+
+public class SearchData implements Serializable{
     private int dataType; // 数据类型
     private String name;  // 名称
     private int distanceNumber; // 距离
@@ -8,6 +10,9 @@ public class SearchData {
     private String residueContent; // 剩余普通车位数
     private String residueNoCommonContent; // 剩余非普通的车位数
     private boolean isCanCommonNumber; // 是否有充电桩车位
+    private String totalCommonContent; // 共空余车位数
+    private String chargeRules; // 收费规则
+
 
     public int getDataType() {
         return dataType;
@@ -63,5 +68,21 @@ public class SearchData {
 
     public void setCanCommonNumber(boolean canCommonNumber) {
         isCanCommonNumber = canCommonNumber;
+    }
+
+    public String getTotalCommonContent() {
+        return totalCommonContent;
+    }
+
+    public void setTotalCommonContent(String totalCommonContent) {
+        this.totalCommonContent = totalCommonContent;
+    }
+
+    public String getChargeRules() {
+        return chargeRules;
+    }
+
+    public void setChargeRules(String chargeRules) {
+        this.chargeRules = chargeRules;
     }
 }

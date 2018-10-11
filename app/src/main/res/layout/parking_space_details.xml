@@ -52,18 +52,15 @@
         android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp0"
-        android:layout_marginTop="@dimen/dp12"
-        android:layout_marginLeft="@dimen/dp12"
-        android:layout_marginRight="@dimen/dp12"
-        android:dividerHeight="@dimen/dp1"
+        android:layout_marginTop="0dp"
+        android:background="#f2f2f2"
         android:divider="#f2f2f2"
+        android:dividerHeight="@dimen/dp1"
+        android:overScrollMode="never"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/parking_space_serial"
-        app:layout_constraintTop_toBottomOf="@id/parking_space_serial"
-        android:background="#f2f2f2"
-        android:overScrollMode="never"
-        android:scrollbars="none"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/serial" />
 
 </android.support.constraint.ConstraintLayout>

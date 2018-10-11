@@ -1,9 +1,24 @@
 package com.huajiao.parkingsystem.ui;
 
-import com.huajiao.parkingsystem.R;
-import com.huajiao.parkingsystem.base.BaseActivity;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ListView;
 
-public class SelectDiscountActivity extends BaseActivity {
+import com.huajiao.parkingsystem.Ben.DiscountCouponData;
+import com.huajiao.parkingsystem.R;
+import com.huajiao.parkingsystem.adapter.SelectDiscountCouponAdapter;
+import com.huajiao.parkingsystem.base.BaseActivity;
+import com.huajiao.parkingsystem.interfaceback.SelectDiscoutClick;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SelectDiscountActivity extends BaseActivity implements SelectDiscoutClick {
+    private ImageButton no_use_btn;
+    private ListView list_view;
+    private Button confirm;
+    private SelectDiscountCouponAdapter mAdapter;
+    private List<DiscountCouponData> mList = new ArrayList<>();
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
@@ -18,7 +33,14 @@ public class SelectDiscountActivity extends BaseActivity {
      */
     @Override
     protected void initData() {
-
+        for (int i=0; i<5;i++){
+            DiscountCouponData data = new DiscountCouponData();
+            data.setCanUse(false);
+            data.setCouponId(i+"");
+            data.setMoney("1008"+i);
+            data.setTime("2018-10-12");
+            mList.add(data);
+        }
     }
 
     /**
@@ -26,7 +48,10 @@ public class SelectDiscountActivity extends BaseActivity {
      */
     @Override
     protected void initView() {
-
+        list_view=findViewById(R.id.list_view);
+        mAdapter=new SelectDiscountCouponAdapter(this,this);
+        mAdapter.setDate(mList);
+        list_view.setAdapter(mAdapter);
     }
 
     /***
@@ -42,6 +67,11 @@ public class SelectDiscountActivity extends BaseActivity {
      */
     @Override
     protected void getInternetData() {
+
+    }
+
+    @Override
+    public void clickBack(String couponId, DiscountCouponData data, boolean isSelect) {
 
     }
 }

@@ -4,8 +4,11 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -78,6 +81,11 @@ public class TimeKeepingPayDialog extends Dialog {
                     LayoutInflater inflater = LayoutInflater.from(context);
                     View view = inflater.inflate(R.layout.time_keeping_pay_dialog, null);
                     setContentView(view);
+                    Window win = getWindow();
+                    WindowManager.LayoutParams lp = win.getAttributes();
+                    lp.gravity = Gravity.BOTTOM;
+                    lp.width = win.getWindowManager().getDefaultDisplay().getWidth();
+                    win.setAttributes(lp);
 
                 closeBt=view.findViewById(R.id.close);
                 selectDiscountCouponBt=view.findViewById(R.id.select_discount_coupon);

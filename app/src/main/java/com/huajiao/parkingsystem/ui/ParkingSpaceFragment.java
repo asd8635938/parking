@@ -1,7 +1,10 @@
 package com.huajiao.parkingsystem.ui;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -73,8 +76,18 @@ public class ParkingSpaceFragment extends AbsFragment implements View.OnClickLis
     }
 
     private void setOnClick() {
-    all.setOnClickListener(this);
-    charging.setOnClickListener(this);
+        all.setOnClickListener(this);
+        charging.setOnClickListener(this);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(),ParkingDetails.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("SearchData", mList.get(position));
+                intent.putExtras(bundle);
+                getActivity().startActivity(intent);
+            }
+        });
     }
 
     private void initView() {

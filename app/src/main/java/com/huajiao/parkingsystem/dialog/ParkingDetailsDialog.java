@@ -4,13 +4,17 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.huajiao.parkingsystem.R;
+import com.huajiao.parkingsystem.ui.AppointmentActivity;
 
 public class ParkingDetailsDialog extends Dialog {
     private Context context;
@@ -52,6 +56,13 @@ public class ParkingDetailsDialog extends Dialog {
                     LayoutInflater inflater = LayoutInflater.from(context);
                     View view = inflater.inflate(R.layout.parking_details_dialog, null);
                     setContentView(view);
+
+                Window win = getWindow();
+                WindowManager.LayoutParams lp = win.getAttributes();
+
+                lp.gravity = Gravity.CENTER;
+                lp.width = win.getWindowManager().getDefaultDisplay().getWidth() - DialogUtils.dip2px(context,40);
+                win.setAttributes(lp);
 
                 closeBt=view.findViewById(R.id.close);
                 whenBt=view.findViewById(R.id.when_btn);

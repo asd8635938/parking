@@ -4,8 +4,11 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -53,6 +56,13 @@ public class SettingDialog extends Dialog {
                     LayoutInflater inflater = LayoutInflater.from(context);
                     View view = inflater.inflate(R.layout.setting_dialog, null);
                     setContentView(view);
+
+                Window win = getWindow();
+                WindowManager.LayoutParams lp = win.getAttributes();
+
+                lp.gravity = Gravity.CENTER;
+                lp.width = win.getWindowManager().getDefaultDisplay().getWidth() - DialogUtils.dip2px(context,40);
+                win.setAttributes(lp);
 
                 bindBtn=view.findViewById(R.id.confirm_btn);
                 cancelBtn=view.findViewById(R.id.cancel_btn);

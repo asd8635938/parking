@@ -91,6 +91,22 @@
             android:name=".ui.ParkingMessageActivity"
             android:theme="@style/AppTheme.NoActionBar"
             />
+        <activity
+            android:name=".ui.WeCenter"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.ParkingDetails"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.ParkingSpaceDetails"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.SelectDiscountActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
 
 
 

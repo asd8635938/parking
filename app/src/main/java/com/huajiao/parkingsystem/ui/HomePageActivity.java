@@ -177,6 +177,7 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.persona_btn:
                 // 跳转到个人信息页面
+                openActivity(WeCenter.class);
                 break;
             case R.id.scanning:
                 // 跳转到车位锁页面

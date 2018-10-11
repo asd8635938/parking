@@ -1,7 +1,11 @@
 package com.huajiao.parkingsystem.ui;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -94,7 +98,16 @@ public class SearchActivity extends BaseActivity implements NavigationClick{
             }
         });
 
-
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(SearchActivity.this,ParkingDetails.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("SearchData", mList.get(position));
+                intent.putExtras(bundle);
+                openActivity(intent);
+            }
+        });
     }
 
     @Override
