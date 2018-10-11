@@ -63,7 +63,7 @@ public class CircleImageView extends AppCompatImageView {
             canvas.drawCircle(width / 2, height / 2, radius, paint);//使用画笔在画布上画圆
 
             if (mBorderWidth > 0) {
-                canvas.drawCircle((width / 2)+mBorderWidth, (height / 2)+mBorderWidth, radius, mBorderPaint);
+                canvas.drawCircle(width / 2, height / 2, radius+mBorderWidth, mBorderPaint);
                    }
         }
 

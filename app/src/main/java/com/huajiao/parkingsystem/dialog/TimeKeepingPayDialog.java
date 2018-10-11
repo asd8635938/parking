@@ -83,8 +83,10 @@ public class TimeKeepingPayDialog extends Dialog {
                     setContentView(view);
                     Window win = getWindow();
                     WindowManager.LayoutParams lp = win.getAttributes();
-                    lp.gravity = Gravity.BOTTOM;
                     lp.width = win.getWindowManager().getDefaultDisplay().getWidth();
+                    lp.gravity = Gravity.BOTTOM;
+                    win.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+                    this.setCanceledOnTouchOutside(false);
                     win.setAttributes(lp);
 
                 closeBt=view.findViewById(R.id.close);

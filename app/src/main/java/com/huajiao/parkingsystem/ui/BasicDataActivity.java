@@ -3,7 +3,9 @@ package com.huajiao.parkingsystem.ui;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
-public class BasicData extends BaseActivity {
+public class BasicDataActivity extends BaseActivity {
+
+
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId

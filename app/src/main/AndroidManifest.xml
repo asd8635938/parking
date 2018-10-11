@@ -107,6 +107,10 @@
             android:name=".ui.SelectDiscountActivity"
             android:theme="@style/AppTheme.NoActionBar"
             />
+        <activity
+            android:name=".ui.BasicDataActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
 
 
 
