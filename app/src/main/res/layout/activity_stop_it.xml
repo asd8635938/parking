@@ -9,7 +9,7 @@
     tools:context="com.huajiao.parkingsystem.ui.StopItActivity">
 
     <include
-        layout="@layout/title_top"
+        layout="@layout/title_bar"
         android:layout_width="match_parent"
         android:layout_height="55dp" />
 

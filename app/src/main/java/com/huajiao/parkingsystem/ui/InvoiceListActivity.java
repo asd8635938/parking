@@ -26,8 +26,6 @@ import butterknife.ButterKnife;
 public class InvoiceListActivity extends BaseActivity {
 
     private RecyclerView recyclerView;
-    private TextView titleName;
-    private ImageView titleLife;
     private ImageView imageViewClick;
     private TextView textViewNumb;
 
@@ -48,15 +46,11 @@ public class InvoiceListActivity extends BaseActivity {
     @Override
     protected void initView() {
         View titleTop = findViewById(R.id.titleTop);
-        titleName = titleTop.findViewById(R.id.titleName);
-        titleLife = titleTop.findViewById(R.id.titleLife);
         recyclerView = findViewById(R.id.recyclerView);
         imageViewClick = findViewById(R.id.imageViewClick);
         textViewNumb = findViewById(R.id.textViewNumb);
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
         titleTop.setBackgroundColor(getResources().getColor(R.color.title));
-        titleName.setText("选择开具发票订单");
-        titleLife.setImageResource(R.mipmap.left);
 
         for (int i = 0; i < 10; i++) {
             TestBean testBean = new TestBean();
@@ -141,14 +135,6 @@ public class InvoiceListActivity extends BaseActivity {
                     initCount();
                     mListAdapter.notifyDataSetChanged();
                 }
-            }
-        });
-
-
-        titleLife.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
             }
         });
     }

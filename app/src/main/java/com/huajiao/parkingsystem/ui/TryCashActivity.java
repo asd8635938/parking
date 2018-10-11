@@ -22,12 +22,6 @@ import butterknife.ButterKnife;
 
 public class TryCashActivity extends BaseActivity {
 
-    @BindView(R.id.titleName)
-    TextView titleName;
-    @BindView(R.id.titleLife)
-    ImageView titleLife;
-    @BindView(R.id.relativeLayout)
-    RelativeLayout relativeLayout;
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
@@ -48,9 +42,6 @@ public class TryCashActivity extends BaseActivity {
     protected void initView() {
         ButterKnife.bind(this);
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
-        relativeLayout.setBackgroundColor(getResources().getColor(R.color.title));
-        titleName.setText("异常停车");
-        titleLife.setImageResource(R.mipmap.left);
 
         textList.add("1");
         textList.add("1");
@@ -84,18 +75,7 @@ public class TryCashActivity extends BaseActivity {
     }
 
     private void initOnClick() {
-        titleName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openActivity(InvoiceListActivity.class);
-            }
-        });
-        titleLife.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+
     }
 
     @Override

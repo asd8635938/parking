@@ -70,10 +70,13 @@ public class StopParkingRecordActivity extends BaseActivity implements View.OnCl
                 openActivity(StopParkingOrderActivity.class);
                 break;
             case R.id.reservation_stop_record:
+                openActivity(StopItActivity.class);
                 break;
             case R.id.exception_stop_parking:
+                openActivity(TryCashActivity.class);
                 break;
             case R.id.invoice:
+                openActivity(InvoiceListActivity.class);
                 break;
         }
     }
