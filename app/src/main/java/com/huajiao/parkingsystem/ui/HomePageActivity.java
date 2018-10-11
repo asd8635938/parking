@@ -5,10 +5,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.constraint.ConstraintLayout;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -176,6 +173,7 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.list_btn:
                 // 跳转到停车场信息页面
+                openActivity(ParkingMessageActivity.class);
                 break;
             case R.id.persona_btn:
                 // 跳转到个人信息页面

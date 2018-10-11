@@ -6,7 +6,7 @@
 
     <include layout="@layout/parking_message_title" android:id="@+id/title"/>
 
-    <fragment
+    <RelativeLayout
         android:id="@+id/fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"

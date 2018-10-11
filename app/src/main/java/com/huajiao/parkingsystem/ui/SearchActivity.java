@@ -38,6 +38,7 @@ public class SearchActivity extends BaseActivity implements NavigationClick{
         for (int i=0;i<5;i++){
             SearchData data=new SearchData();
             data.setName("我的停车场");
+            data.setDataType(0);
             data.setDistanceNumber(300);
             data.setFreeDurationContent("12分钟内免费");
             data.setResidueContent("30位");
