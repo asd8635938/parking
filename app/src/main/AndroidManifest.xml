@@ -139,6 +139,10 @@
             android:name=".ui.StopOrderDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar"
             />
+        <activity
+            android:name=".ui.ShareFriendActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
 
 
 
