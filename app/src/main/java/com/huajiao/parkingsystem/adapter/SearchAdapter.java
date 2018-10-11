@@ -97,12 +97,12 @@ public class SearchAdapter extends BaseAdapter {
             }
             searchView.name.setText(mData.getName());
             searchView.freeDurationContent.setText(mData.getFreeDurationContent());
-            searchView.navigationNumber.setText(mData.getDistanceNumber());
+            searchView.navigationNumber.setText(mData.getDistanceNumber()+"");
             searchView.residueContent.setText(mData.getResidueContent());
             searchView.residueNoCommonContent.setText(mData.getResidueNoCommonContent());
         }else{
             searchView.name.setText(mData.getName());
-            searchView.navigationNumber.setText(mData.getDistanceNumber());
+            searchView.navigationNumber.setText(mData.getDistanceNumber()+"");
         }
 
         searchView.navigationBtn.setOnClickListener(new View.OnClickListener() {

@@ -75,6 +75,10 @@
             android:name=".ui.SystemeMessageDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar"
             />
+        <activity
+            android:name=".ui.SearchActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
 
         <activity
             android:name=".ui.CouponActivity"

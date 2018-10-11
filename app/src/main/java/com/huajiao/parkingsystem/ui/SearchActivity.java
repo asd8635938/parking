@@ -12,13 +12,15 @@ import com.huajiao.parkingsystem.adapter.SearchAdapter;
 import com.huajiao.parkingsystem.base.BaseActivity;
 import com.huajiao.parkingsystem.interfaceback.NavigationClick;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class SearchActivity extends BaseActivity implements NavigationClick{
     private EditText searchEt;
     private ListView mListView;
     private SearchAdapter mAdapter;
-    private List<SearchData> mList;
+    private List<SearchData> mList =new ArrayList<>();
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
@@ -33,7 +35,16 @@ public class SearchActivity extends BaseActivity implements NavigationClick{
      */
     @Override
     protected void initData() {
-
+        for (int i=0;i<5;i++){
+            SearchData data=new SearchData();
+            data.setName("我的停车场");
+            data.setDistanceNumber(300);
+            data.setFreeDurationContent("12分钟内免费");
+            data.setResidueContent("30位");
+            data.setResidueNoCommonContent("53位");
+            data.setCanCommonNumber(true);
+            mList.add(data);
+        }
     }
 
     /**
@@ -52,12 +63,12 @@ public class SearchActivity extends BaseActivity implements NavigationClick{
         setTitleText("搜索");
         searchEt=findViewById(R.id.edit_search);
         mListView=findViewById(R.id.list_view);
-
+        mAdapter=new SearchAdapter(this,this);
+        setAdapterData(mList);
+        mListView.setAdapter(mAdapter);
     }
     private void setAdapterData(List<SearchData> list){
-        mAdapter=new SearchAdapter(this,this);
         mAdapter.setDate(list);
-        mListView.setAdapter(mAdapter);
     }
 
     /***

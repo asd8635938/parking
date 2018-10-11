@@ -67,8 +67,7 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
 
     private MapView mMapView;
     private BaiduMap mBaiduMap;
-
-    private EditText mEditSearch;
+    private View roundBg;
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
@@ -106,7 +105,7 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         mListBtn=findViewById(R.id.list_btn);
         mPersonaBtn=findViewById(R.id.persona_btn);
         mScanning=findViewById(R.id.scanning);
-        mEditSearch=findViewById(R.id.edit_search);
+        roundBg=findViewById(R.id.round_bg);
 //         百度地图使用形式比较特殊 不设置点击事件 ps相当于一个布局容器
         mMapView=findViewById(R.id.baidu_map);
         mBaiduMap=mMapView.getMap();
@@ -132,22 +131,7 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         mListBtn.setOnClickListener(this);
         mPersonaBtn.setOnClickListener(this);
         mScanning.setOnClickListener(this);
-        mEditSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+        roundBg.setOnClickListener(this);
     }
 
     /**
@@ -197,7 +181,12 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
                 // 跳转到个人信息页面
                 break;
             case R.id.scanning:
-                // 跳转到自定义的二维码扫描页面
+                // 跳转到车位锁页面
+
+                break;
+            case R.id.round_bg:
+                // 跳转到搜索页面
+                openActivity(SearchActivity.class);
                 break;
         }
 
