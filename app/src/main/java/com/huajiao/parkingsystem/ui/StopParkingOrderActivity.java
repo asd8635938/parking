@@ -71,5 +71,6 @@ public class StopParkingOrderActivity extends BaseActivity implements StopParkin
         Intent intent =new Intent(StopParkingOrderActivity.this,StopOrderDetailsActivity.class);
         intent.putExtra("state",data.isUse());
         openActivity(intent);
+
     }
 }
