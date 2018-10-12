@@ -31,6 +31,7 @@ public class InvoiceListActivity extends BaseActivity {
 
     private ListAdapter mListAdapter;
     private List<TestBean> beanList = new ArrayList<>();
+    private TextView next;
     private boolean isClick = false;
 
     @Override
@@ -49,6 +50,7 @@ public class InvoiceListActivity extends BaseActivity {
         recyclerView = findViewById(R.id.recyclerView);
         imageViewClick = findViewById(R.id.imageViewClick);
         textViewNumb = findViewById(R.id.textViewNumb);
+        next=findViewById(R.id.next);
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
         titleTop.setBackgroundColor(getResources().getColor(R.color.title));
 
@@ -141,7 +143,12 @@ public class InvoiceListActivity extends BaseActivity {
 
     @Override
     protected void bindEvent() {
-
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(InvoiceActivity.class);
+            }
+        });
     }
 
     @Override

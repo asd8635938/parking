@@ -79,10 +79,11 @@
             android:layout_weight="11"
             android:gravity="center"
             android:layout_height="match_parent"/>
-        <ImageView
+        <ImageButton
+            android:id="@+id/switch_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/switch_btn"
+            android:background="@drawable/switch_btn"
             android:layout_marginRight="@dimen/dp13"
             />
     </LinearLayout>

@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -39,7 +41,7 @@ public class ChargeStandardAdapter extends BaseAdapter {
     private class DiscountView {
         TextView name;
         TextView content;
-        ImageButton isUse;
+        CheckBox isUse;
     }
 
 
@@ -68,7 +70,7 @@ public class ChargeStandardAdapter extends BaseAdapter {
             discountView= new DiscountView();
             convertView= LayoutInflater.from(context).inflate(R.layout.charge_standard_item,null);
             discountView.name=convertView.findViewById(R.id.name);
-            discountView.content=convertView.findViewById(R.id.content);
+            discountView.content=convertView.findViewById(R.id.content_text);
             discountView.isUse=convertView.findViewById(R.id.charge_btn);
             convertView.setTag(discountView);
         }else{
@@ -78,11 +80,13 @@ public class ChargeStandardAdapter extends BaseAdapter {
         mData=mList.get(position);
         discountView.name.setText(mData.getName());
         discountView.content.setText(mData.getCotent());
-        discountView.isUse.setOnClickListener(new View.OnClickListener() {
+        discountView.isUse.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-            clik.clickBack(position,mData,discountView.isUse.isSelected());
-            // 如果是单选那么就不需要用这个做监听了
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (clik != null) {
+                    clik.clickBack(position, mList.get(position), discountView.isUse.isSelected());
+//                    // 如果是单选那么就不需要用这个做监听了
+                }
             }
         });
         return convertView;

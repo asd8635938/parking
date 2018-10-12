@@ -46,6 +46,10 @@ public class WeCenterActivity extends BaseActivity implements View.OnClickListen
         my_money_package=findViewById(R.id.my_money_package);
         my_record=findViewById(R.id.my_record);
         share_btn=findViewById(R.id.share_btn);
+        account_btn=findViewById(R.id.account_btn);
+        query_btn=findViewById(R.id.query_btn);
+        setting_btn=findViewById(R.id.setting_btn);
+        my_coowner=findViewById(R.id.my_coowner);
     }
 
     /***
@@ -57,6 +61,10 @@ public class WeCenterActivity extends BaseActivity implements View.OnClickListen
         my_money_package.setOnClickListener(this);
         my_record.setOnClickListener(this);
         share_btn.setOnClickListener(this);
+        account_btn.setOnClickListener(this);
+        query_btn.setOnClickListener(this);
+        setting_btn.setOnClickListener(this);
+        my_coowner.setOnClickListener(this);
     }
 
     /**
@@ -84,8 +92,20 @@ public class WeCenterActivity extends BaseActivity implements View.OnClickListen
             case R.id.my_record:
                 openActivity(StopParkingRecordActivity.class);
                 break;
-                case R.id.share_btn:
+            case R.id.share_btn:
                 openActivity(ShareFriendActivity.class);
+                break;
+            case R.id.account_btn:
+                openActivity(AlterPasswordActivty.class);
+                break;
+            case R.id.query_btn:
+                showToast("暂时没有第三方");
+                break;
+            case R.id.setting_btn:
+               openActivity(SettingActivity.class);
+                break;
+            case R.id.my_coowner:
+               openActivity(MyParkingMain.class);
                 break;
         }
     }

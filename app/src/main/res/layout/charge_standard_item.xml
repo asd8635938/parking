@@ -2,19 +2,19 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dp80"
+    android:layout_height="160dp"
     android:orientation="horizontal"
     android:background="#ffffff"
     android:gravity="center_vertical"
     >
-    <ImageButton
+    <CheckBox
         android:id="@+id/charge_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/dp14"
-        android:background="@null"
-        android:src="@drawable/single_btn"
+        android:button="@drawable/single_btn"
         android:layout_marginLeft="@dimen/dp13"
+        android:checked="false"
         />
 
     <TextView
@@ -26,10 +26,12 @@
         android:textSize="@dimen/sp15"
         />
     <TextView
-        android:id="@+id/content"
+        android:id="@+id/content_text"
         android:layout_width="0dp"
         android:layout_weight="6"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="left"
         android:layout_marginLeft="@dimen/dp13"
         android:paddingTop="@dimen/dp13"
         android:paddingBottom="@dimen/dp13"

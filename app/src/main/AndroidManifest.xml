@@ -143,9 +143,26 @@
             android:name=".ui.ShareFriendActivity"
             android:theme="@style/AppTheme.NoActionBar"
             />
-
-
-
+        <activity
+            android:name=".ui.SettingActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.FeedbackAndAdvice"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.MyAboutActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.AlterPasswordActivty"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".ui.MyParkingMain"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity
             android:name=".ui.CouponActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -163,6 +180,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.InvoiceListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.ChargeStandardActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.InvoiceActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

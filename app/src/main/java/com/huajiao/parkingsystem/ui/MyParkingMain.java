@@ -1,9 +1,34 @@
 package com.huajiao.parkingsystem.ui;
 
-import com.huajiao.parkingsystem.R;
-import com.huajiao.parkingsystem.base.BaseActivity;
+import android.app.Dialog;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 
-public class MyParkingMain extends BaseActivity {
+import com.huajiao.parkingsystem.Ben.MyParkingMainData;
+import com.huajiao.parkingsystem.R;
+import com.huajiao.parkingsystem.adapter.MyParkingMainAdapter;
+import com.huajiao.parkingsystem.base.BaseActivity;
+import com.huajiao.parkingsystem.dialog.DialogUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MyParkingMain extends BaseActivity implements View.OnClickListener{
+
+    private Button withdrawal_btn;
+    private ImageButton switch_btn;
+    private LinearLayout charge_btn;
+    private LinearLayout parking_space_type;
+    private LinearLayout parking_space_serial_number;
+    private LinearLayout parking_space_location;
+    private ListView list_view;
+    private MyParkingMainAdapter mAdapter;
+    private List<MyParkingMainData> mList = new ArrayList<>();
+
+
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
@@ -18,7 +43,14 @@ public class MyParkingMain extends BaseActivity {
      */
     @Override
     protected void initData() {
-
+        for (int i=0;i<10;i++){
+            MyParkingMainData data =new MyParkingMainData();
+            data.setName("麻花藤"+i);
+            data.setCost("2"+i+"分钟");
+            data.setState("￥3"+i);
+            data.setTime("使用中");
+            mList.add(data);
+        }
     }
 
     /**
@@ -26,7 +58,18 @@ public class MyParkingMain extends BaseActivity {
      */
     @Override
     protected void initView() {
-
+        isShowSaveBtn(View.VISIBLE);
+        setShowSaveBtnText("注销车位");
+        withdrawal_btn=findViewById(R.id.withdrawal_btn);
+        switch_btn=findViewById(R.id.switch_btn);
+        charge_btn=findViewById(R.id.charge_btn);
+        parking_space_type=findViewById(R.id.parking_space_type);
+        parking_space_serial_number=findViewById(R.id.parking_space_serial_number);
+        parking_space_location=findViewById(R.id.parking_space_location);
+        list_view=findViewById(R.id.list_view);
+        mAdapter=new MyParkingMainAdapter(this);
+        mAdapter.setDate(mList);
+        list_view.setAdapter(mAdapter);
     }
 
     /***
@@ -34,7 +77,12 @@ public class MyParkingMain extends BaseActivity {
      */
     @Override
     protected void bindEvent() {
-
+        withdrawal_btn.setOnClickListener(this);
+        switch_btn.setOnClickListener(this);
+        charge_btn.setOnClickListener(this);
+        parking_space_type.setOnClickListener(this);
+        parking_space_serial_number.setOnClickListener(this);
+        parking_space_location.setOnClickListener(this);
     }
 
     /**
@@ -43,5 +91,79 @@ public class MyParkingMain extends BaseActivity {
     @Override
     protected void getInternetData() {
 
+    }
+
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v The view that was clicked.
+     */
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.withdrawal_btn:
+                openActivity(PayActivity.class);
+                break;
+            case R.id.switch_btn:
+
+                break;
+            case R.id.charge_btn:
+                openActivity(ChargeStandardActivity.class);
+                break;
+            case R.id.parking_space_type:
+                DialogUtils.showMyParkingDialog(true, this, getWindow().getWindowManager().getDefaultDisplay().getWidth() - DialogUtils.dip2px(this, 40), null, new DialogUtils.ShowDialogCallBack() {
+                    @Override
+                    public void LeftClick(Dialog dialog) {
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void RightClick(Dialog dialog) {
+                        dialog.dismiss();
+                    }
+                });
+                break;
+            case R.id.parking_space_serial_number:
+                DialogUtils.showDialog(false, this, getWindow().getWindowManager().getDefaultDisplay().getWidth() - DialogUtils.dip2px(this, 40), "提示", "确定要注销车位吗?", new DialogUtils.ShowDialogCallBack() {
+                    @Override
+                    public void LeftClick(Dialog dialog) {
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void RightClick(Dialog dialog) {
+                        dialog.dismiss();
+                    }
+                });
+                break;
+            case R.id.parking_space_location:
+                    showToast("暂时没有定位数据");
+                break;
+        }
+    }
+
+    /**
+     *
+     */
+    @Override
+    protected void callbackSaveBtn() {
+        DialogUtils.showDialog(false, this, getWindow().getWindowManager().getDefaultDisplay().getWidth() - DialogUtils.dip2px(this, 40), "提示", "确定要注销车位吗？", new DialogUtils.ShowDialogCallBack() {
+            @Override
+            public void LeftClick(Dialog dialog) {
+                dialog.dismiss();
+            }
+
+            @Override
+            public void RightClick(Dialog dialog) {
+                dialog.dismiss();
+            }
+        });
+        super.callbackSaveBtn();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        isShowSaveBtn(View.GONE);
     }
 }

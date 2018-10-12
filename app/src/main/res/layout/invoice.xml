@@ -459,14 +459,12 @@
                     android:layout_height="wrap_content"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/sp18"
+                    android:text="提交"
                     android:background="@drawable/greenbtn"
                     />
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
-
-
-
 
 </android.support.constraint.ConstraintLayout>

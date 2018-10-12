@@ -15,13 +15,6 @@ import butterknife.ButterKnife;
 
 public class PayActivity extends BaseActivity {
 
-    @BindView(R.id.titleName)
-    TextView titleName;
-    @BindView(R.id.titleLife)
-    ImageView titleLife;
-    @BindView(R.id.relativeLayout)
-    RelativeLayout relativeLayout;
-
     @Override
     protected int getViewContentId() {
         return R.layout.activity_pay;
@@ -36,26 +29,12 @@ public class PayActivity extends BaseActivity {
     protected void initView() {
         ButterKnife.bind(this);
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
-        relativeLayout.setBackgroundColor(getResources().getColor(R.color.title));
-        titleName.setText("支付宝提现");
-        titleLife.setImageResource(R.mipmap.left);
 
         initOnClick();
     }
 
     private void initOnClick() {
-        titleName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openActivity(TryCashActivity.class);
-            }
-        });
-        titleLife.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+
     }
 
     @Override

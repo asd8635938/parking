@@ -104,18 +104,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         Button btn=findViewById(R.id.save);
         if(btn!=null){
             btn.setText(s);
-            btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    callbackSaveBtn();
-                }
-            });
         }
     }
 
     /**
      *
-     * 用于保存按钮的回调你可以在里面处理保存按钮的事件
+     * @param  {用于保存按钮的回调你可以在里面处理保存按钮的事件}
+     *
      */
     protected void callbackSaveBtn(){}
 

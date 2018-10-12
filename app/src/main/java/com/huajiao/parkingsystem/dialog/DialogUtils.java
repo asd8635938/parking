@@ -76,7 +76,7 @@ public class DialogUtils {
      * @param content
      * @param listener
      */
-    public static void showMyParkingDialog(boolean isShowType,Context context,int width ,String title, String content, final ShowDialogCallBack listener) {
+    public static void showMyParkingDialog(boolean isShowType,Context context,int width ,String title, final ShowDialogCallBack listener) {
         View dialogview = LayoutInflater.from(context).inflate(R.layout.my_parking_dialog, null);
         final Dialog dialog = new Dialog(context, R.style.dialog_bg_style);
         //设置view

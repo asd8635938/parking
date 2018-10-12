@@ -4,6 +4,9 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.google.gson.Gson;
@@ -18,6 +21,12 @@ import java.util.ArrayList;
 
 public class InvoiceActivity extends BaseActivity implements View.OnClickListener{
 
+    private LinearLayout paper_layout;
+    private LinearLayout email_layout;
+
+    private Button electronic_invoice;
+    private Button paper_invoice;
+    private TextView select_city;
 
     private ArrayList<JsonBean> options1Items = new ArrayList<>();
     private ArrayList<ArrayList<String>> options2Items = new ArrayList<>();
@@ -56,6 +65,21 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
      */
     @Override
     protected void initView() {
+        electronic_invoice=findViewById(R.id.electronic_invoice);
+        paper_invoice=findViewById(R.id.paper_invoice);
+
+        paper_layout=findViewById(R.id.paper_layout);
+        email_layout=findViewById(R.id.email_layout);
+        select_city=findViewById(R.id.select_city);
+        // 初始页面调整
+        email_layout.setVisibility(View.VISIBLE);
+        paper_layout.setVisibility(View.GONE);
+
+        paper_invoice.setTextColor(Color.parseColor("#222222"));
+        paper_invoice.setBackgroundResource(R.drawable.registered_btn_no_border);
+        electronic_invoice.setTextColor(Color.parseColor("#27c38a"));
+        electronic_invoice.setBackgroundResource(R.drawable.registered_btn);
+
 
     }
 
@@ -64,7 +88,9 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
      */
     @Override
     protected void bindEvent() {
-
+        electronic_invoice.setOnClickListener(this);
+        paper_invoice.setOnClickListener(this);
+        select_city.setOnClickListener(this);
     }
 
     /**
@@ -127,6 +153,7 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
              */
             options3Items.add(Province_AreaList);
         }
+        mHandler.sendEmptyMessage(MSG_LOAD_SUCCESS);
     }
 
     private Handler mHandler = new Handler() {
@@ -202,6 +229,25 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
                 } else {
                     showToast("暂时无法选择城市请稍后再试");
                 }
+                break;
+            case R.id.electronic_invoice:
+                email_layout.setVisibility(View.VISIBLE);
+                paper_layout.setVisibility(View.GONE);
+                paper_invoice.setTextColor(Color.parseColor("#222222"));
+                paper_invoice.setBackgroundResource(R.drawable.registered_btn_no_border);
+                electronic_invoice.setTextColor(Color.parseColor("#27c38a"));
+                electronic_invoice.setBackgroundResource(R.drawable.registered_btn);
+
+                break;
+            case R.id.paper_invoice:
+                paper_layout.setVisibility(View.VISIBLE);
+                email_layout.setVisibility(View.GONE);
+
+                electronic_invoice.setTextColor(Color.parseColor("#222222"));
+                electronic_invoice.setBackgroundResource(R.drawable.registered_btn_no_border);
+
+                paper_invoice.setTextColor(Color.parseColor("#27c38a"));
+                paper_invoice.setBackgroundResource(R.drawable.registered_btn);
                 break;
         }
     }
