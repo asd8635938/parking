@@ -11,6 +11,7 @@ import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.MainActivity;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
+import com.huajiao.parkingsystem.tools.CheckUtil;
 
 public class ForgetPasswordActivty extends BaseActivity implements View.OnClickListener{
     private EditText mMobileEt;
@@ -91,11 +92,44 @@ public class ForgetPasswordActivty extends BaseActivity implements View.OnClickL
         switch (v.getId())
         {
             case R.id.send_verificaton_code:
+                if(isNext()){
+                    
+                }
                 break;
             case R.id.confirm_btn:
                 openActivity(MainActivity.class);
                 break;
         }
+    }
+
+    public boolean isNext(){
+        if(!CheckUtil.checkString(mobile)){
+            showToast("账号不能为空");
+            return false;
+        }
+        if(!CheckUtil.checkPhone(mobile)){
+            showToast("账号不符合规则请填写手机号码");
+            return false;
+        }
+        if (!CheckUtil.checkString(verification)){
+            showToast("验证码不能为空");
+            return false;
+
+        }
+        if (!CheckUtil.checkString(password)){
+            showToast("密码不能为空");
+            return false;
+
+        }
+        if (!CheckUtil.checkString(confirmPassword)){
+            showToast("再次密码不能为空");
+            return false;
+        }
+        if (!CheckUtil.checkStringContent(password,confirmPassword)){
+            showToast("两次输入密码不相同");
+            return false;
+        }
+        return true;
     }
 
     private class ClassOfTextWatcher implements TextWatcher

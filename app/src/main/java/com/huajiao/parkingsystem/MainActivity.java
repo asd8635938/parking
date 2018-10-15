@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.base.BaseActivity;
+import com.huajiao.parkingsystem.tools.CheckUtil;
 import com.huajiao.parkingsystem.ui.BindCarNumber;
 import com.huajiao.parkingsystem.ui.BindPhone;
 import com.huajiao.parkingsystem.ui.CouponActivity;
@@ -100,6 +101,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 openActivity(ForgetPasswordActivty.class);
                 break;
             case R.id.login_btn:
+                if(!CheckUtil.checkPhone(mobile)){
+                    showToast("账号不符合规则请填写手机号码");
+                    return;
+                }
+                if(!CheckUtil.checkString(mobile)){
+                    showToast("手机号不能为空");
+                    return;
+                }
                 openActivity(HomePageActivity.class);
                 break;
             case R.id.registered_btn:
