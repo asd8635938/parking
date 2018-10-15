@@ -156,6 +156,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         this.startActivity(intent);
     }
 
+    protected void openForResultActivity(Intent intent,int requestCode){
+        this.startActivityForResult(intent,requestCode);
+    }
+
     /***
      *
      * 将编辑框的光标移动到末尾

@@ -1,9 +1,11 @@
 package com.huajiao.parkingsystem.ui;
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.widget.ImageView;
@@ -152,7 +154,10 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         {
             case R.id.location_text:
                 // 跳转切换城市页面
-                openActivity(SwitchOverCity.class);
+                Intent intent = new Intent();
+                intent.putExtra("city",mLocationText.getText().toString());
+                intent.setClass(HomePageActivity.this,SwitchOverCity.class);
+                openForResultActivity(intent,1);
                 break;
             case R.id.image_message:
                 // 跳转消息页面
@@ -329,4 +334,9 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mLocationText.setText(data.getExtras().getString("city"));
+    }
 }

@@ -1,7 +1,10 @@
 package com.huajiao.parkingsystem.ui;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,6 +27,7 @@ public class SwitchOverCity extends BaseActivity {
     private SwitchOverCityAdapter mAdapter;
     private List<CityData> mList =new ArrayList<>();
     private PinyinComparator pinyinComparator;
+    private String city;
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
@@ -62,6 +66,8 @@ public class SwitchOverCity extends BaseActivity {
                 myHandler.sendMessage(message);
             }
         }).start();
+
+        city= getIntent().getStringExtra("city");
     }
 
     Handler myHandler = new Handler() {
@@ -87,6 +93,7 @@ public class SwitchOverCity extends BaseActivity {
         mAdapter=new SwitchOverCityAdapter(this);
         mListView.setAdapter(mAdapter);
         pinyinComparator = new PinyinComparator();
+        presentCity.setText(city);
     }
 
     /***
@@ -94,7 +101,18 @@ public class SwitchOverCity extends BaseActivity {
      */
     @Override
     protected void bindEvent() {
-
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent();
+                //把返回数据存入Intent
+                intent.putExtra("city", mList.get(position).getName().toString());
+                //设置返回数据
+                SwitchOverCity.this.setResult(RESULT_OK, intent);
+                //关闭Activity
+                SwitchOverCity.this.finish();
+            }
+        });
     }
 
     /**
