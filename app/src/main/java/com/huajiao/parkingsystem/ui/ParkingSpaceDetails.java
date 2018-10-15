@@ -3,6 +3,7 @@ package com.huajiao.parkingsystem.ui;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.Ben.ParkingDetailsData;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.adapter.ParkingDetailsAdapter;
@@ -51,6 +52,8 @@ public class ParkingSpaceDetails extends BaseActivity implements ParkingDetailsC
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("车位详情");
         list_view=findViewById(R.id.list_view);
         mAdapter=new ParkingDetailsAdapter(this,this);
         mAdapter.setDate(mList);

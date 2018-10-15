@@ -155,4 +155,5 @@ public class CouponActivity extends BaseActivity {
         int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, getResources().getDisplayMetrics());
         return size;
     }
+
 }

@@ -46,6 +46,8 @@ public class InvoiceListActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("选择开具发票订单");
         View titleTop = findViewById(R.id.titleTop);
         recyclerView = findViewById(R.id.recyclerView);
         imageViewClick = findViewById(R.id.imageViewClick);

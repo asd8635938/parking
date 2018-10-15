@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
@@ -16,6 +17,8 @@ public class ParkingMessageActivity extends BaseActivity implements View.OnClick
    private PetrolStationFragment petrolStationFragment;
    private FragmentTransaction transaction;
    private FragmentManager frgmentManager;
+   private  View parking_text_cross;
+   private  View petrol_station_text_cross;
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
@@ -39,8 +42,13 @@ public class ParkingMessageActivity extends BaseActivity implements View.OnClick
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
         parkingText=findViewById(R.id.parking_text);
+        parking_text_cross=findViewById(R.id.parking_text_cross);
+
         petrolStatio=findViewById(R.id.petrol_station_text);
+        petrol_station_text_cross=findViewById(R.id.petrol_station_text_cross);
+
         frgmentManager = getFragmentManager();
         transaction = frgmentManager.beginTransaction();
         transaction.add(R.id.fragment,parkingSpaceFragment).commit();
@@ -77,12 +85,16 @@ public class ParkingMessageActivity extends BaseActivity implements View.OnClick
                 petrolStatio.setTextColor(Color.parseColor("#898989"));
                 parkingSpaceFragment=new ParkingSpaceFragment();
                 transaction.replace(R.id.fragment,parkingSpaceFragment).commit();
+                parking_text_cross.setVisibility(View.VISIBLE);
+                petrol_station_text_cross.setVisibility(View.GONE);
                 break;
             case R.id.petrol_station_text:
                 petrolStatio.setTextColor(Color.parseColor("#27c38a"));
                 parkingText.setTextColor(Color.parseColor("#898989"));
                 petrolStationFragment=new PetrolStationFragment();
                 transaction.replace(R.id.fragment,petrolStationFragment).commit();
+                parking_text_cross.setVisibility(View.GONE);
+                petrol_station_text_cross.setVisibility(View.VISIBLE);
                 break;
         }
     }

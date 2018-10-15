@@ -5,6 +5,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
@@ -35,6 +36,8 @@ public class ParkingSpaceLock extends BaseActivity implements View.OnClickListen
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("车位锁");
         advertising = findViewById(R.id.advertising);
         chargeRules=findViewById(R.id.charge_rules_content);
         dropBtn=findViewById(R.id.drop_btn);

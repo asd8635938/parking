@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
@@ -37,6 +38,8 @@ public class PayPageActivity extends BaseActivity implements View.OnClickListene
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("充值");
         pay_btn=findViewById(R.id.pay_btn);
         pay_confirm=findViewById(R.id.pay_confirm);
         input_pay_coin=findViewById(R.id.input_pay_coin);

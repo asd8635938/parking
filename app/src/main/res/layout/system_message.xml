@@ -13,7 +13,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/title"
         app:layout_constraintEnd_toEndOf="parent"
-        android:dividerHeight="@dimen/dp15"
+        android:dividerHeight="1dp"
+        android:background="#f2f2f2"
         >
 
     </ListView>

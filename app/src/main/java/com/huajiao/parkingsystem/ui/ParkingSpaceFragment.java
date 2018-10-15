@@ -116,6 +116,7 @@ public class ParkingSpaceFragment extends AbsFragment implements View.OnClickLis
                 mAdapter.setDate(mList);
                 all.setTextColor(Color.parseColor("#ffffff"));
                 charging.setTextColor(Color.parseColor("#898989"));
+
                 break;
             case R.id.charging:
                 charging.setBackgroundResource(R.drawable.greenbtn);
@@ -123,6 +124,7 @@ public class ParkingSpaceFragment extends AbsFragment implements View.OnClickLis
                 mAdapter.setDate(mListTwo);
                 charging.setTextColor(Color.parseColor("#ffffff"));
                 all.setTextColor(Color.parseColor("#898989"));
+
                 break;
         }
     }

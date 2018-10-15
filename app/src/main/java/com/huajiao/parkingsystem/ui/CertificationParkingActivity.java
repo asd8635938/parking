@@ -1,5 +1,6 @@
 package com.huajiao.parkingsystem.ui;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
@@ -18,6 +19,8 @@ public class CertificationParkingActivity extends BaseActivity {
      */
     @Override
     protected void initData() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("认证车位主");
 
     }
 

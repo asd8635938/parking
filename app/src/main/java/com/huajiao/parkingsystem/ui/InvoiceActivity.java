@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bigkoo.pickerview.OptionsPickerView;
+import com.githang.statusbar.StatusBarCompat;
 import com.google.gson.Gson;
 import com.huajiao.parkingsystem.Ben.JsonBean;
 import com.huajiao.parkingsystem.R;
@@ -65,6 +66,8 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("开具发票");
         electronic_invoice=findViewById(R.id.electronic_invoice);
         paper_invoice=findViewById(R.id.paper_invoice);
 

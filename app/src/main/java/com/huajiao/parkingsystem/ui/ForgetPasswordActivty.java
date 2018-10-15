@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.MainActivity;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
@@ -45,6 +46,7 @@ public class ForgetPasswordActivty extends BaseActivity implements View.OnClickL
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.white));
           mMobileEt=findViewById(R.id.edit_mobile_phone);
           mVerificationEt=findViewById(R.id.edit_verification_code);
           mNewPasswordEt=findViewById(R.id.edit_input_news_password);

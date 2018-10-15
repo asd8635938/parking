@@ -29,7 +29,7 @@ public class PayActivity extends BaseActivity {
     protected void initView() {
         ButterKnife.bind(this);
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
-
+        setTitleText("支付宝提现");
         initOnClick();
     }
 

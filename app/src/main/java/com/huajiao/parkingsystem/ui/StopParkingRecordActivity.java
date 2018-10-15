@@ -3,6 +3,7 @@ package com.huajiao.parkingsystem.ui;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
@@ -33,6 +34,8 @@ public class StopParkingRecordActivity extends BaseActivity implements View.OnCl
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("停车记录");
         stop_record=findViewById(R.id.stop_record);
         reservation_stop_record=findViewById(R.id.reservation_stop_record);
         exception_stop_parking=findViewById(R.id.exception_stop_parking);

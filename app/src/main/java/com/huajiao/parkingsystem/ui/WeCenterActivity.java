@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
@@ -42,6 +43,7 @@ public class WeCenterActivity extends BaseActivity implements View.OnClickListen
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title_bg));
         center_image=findViewById(R.id.center_image);
         my_money_package=findViewById(R.id.my_money_package);
         my_record=findViewById(R.id.my_record);

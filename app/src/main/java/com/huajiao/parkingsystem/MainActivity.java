@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.base.BaseActivity;
 import com.huajiao.parkingsystem.ui.BindCarNumber;
 import com.huajiao.parkingsystem.ui.BindPhone;
@@ -49,6 +50,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.white));
         mMobileEt=findViewById(R.id.edit_mobile_phone);
         mPasswordEt=findViewById(R.id.edit_input_password);
         mForgetPasswordBt=findViewById(R.id.forget_password);

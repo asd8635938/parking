@@ -3,6 +3,7 @@ package com.huajiao.parkingsystem.ui;
 import android.view.View;
 import android.widget.ListView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.Ben.ChargeStandardData;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.adapter.ChargeStandardAdapter;
@@ -46,6 +47,8 @@ public class ChargeStandardActivity extends BaseActivity implements SelectCharge
     @Override
     protected void initView() {
         isShowSaveBtn(View.VISIBLE);
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("收费规则");
         list_view=findViewById(R.id.list_view);
         mAdapter=new ChargeStandardAdapter(this,this);
         mAdapter.setDate(mList);

@@ -21,6 +21,7 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
@@ -87,6 +88,7 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
         mStateText=findViewById(R.id.state_text);
         mStateContent=findViewById(R.id.state_content);
         mStateTime=findViewById(R.id.state_time);

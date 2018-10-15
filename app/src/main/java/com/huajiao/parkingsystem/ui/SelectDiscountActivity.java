@@ -4,6 +4,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.Ben.DiscountCouponData;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.adapter.SelectDiscountCouponAdapter;
@@ -48,6 +49,8 @@ public class SelectDiscountActivity extends BaseActivity implements SelectDiscou
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("选择优惠券");
         list_view=findViewById(R.id.list_view);
         mAdapter=new SelectDiscountCouponAdapter(this,this);
         mAdapter.setDate(mList);

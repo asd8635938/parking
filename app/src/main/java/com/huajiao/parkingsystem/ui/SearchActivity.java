@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.Ben.SearchData;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.adapter.SearchAdapter;
@@ -65,6 +66,7 @@ public class SearchActivity extends BaseActivity implements NavigationClick{
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
         setTitleText("搜索");
         searchEt=findViewById(R.id.edit_search);
         mListView=findViewById(R.id.list_view);

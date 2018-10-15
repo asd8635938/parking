@@ -3,6 +3,7 @@ package com.huajiao.parkingsystem.ui;
 import android.content.Intent;
 import android.widget.TextView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.Ben.SystemeMessageData;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
@@ -35,6 +36,8 @@ public class SystemeMessageDetailsActivity extends BaseActivity {
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("消息详情");
         name=findViewById(R.id.name);
         time=findViewById(R.id.time);
         textContent=findViewById(R.id.text_content);

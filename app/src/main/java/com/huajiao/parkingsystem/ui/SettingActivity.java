@@ -6,6 +6,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.MainActivity;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
@@ -40,6 +41,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("设置");
         switch_btn=findViewById(R.id.switch_btn);
         check_update=findViewById(R.id.check_update);
         about_my=findViewById(R.id.about_my);

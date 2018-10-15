@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 import com.huajiao.parkingsystem.dialog.DialogUtils;
@@ -36,6 +37,8 @@ public class BasicDataActivity extends BaseActivity implements View.OnClickListe
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("个人资料");
         replace_btn=findViewById(R.id.replace_btn);
         gender_btn=findViewById(R.id.gender_btn);
         name_content=findViewById(R.id.name_content);

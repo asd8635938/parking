@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 import com.huajiao.parkingsystem.dialog.TimeKeepingPayDialog;
@@ -36,6 +37,8 @@ public class StopOrderDetailsActivity extends BaseActivity implements TimeKeepin
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("订单详情");
         no_use_layout=findViewById(R.id.no_use_layout);
         use_layout=findViewById(R.id.use_layout);
         pay_btn=findViewById(R.id.pay_btn);

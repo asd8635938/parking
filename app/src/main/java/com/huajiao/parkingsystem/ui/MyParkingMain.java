@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.Ben.MyParkingMainData;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.adapter.MyParkingMainAdapter;
@@ -58,18 +59,25 @@ public class MyParkingMain extends BaseActivity implements View.OnClickListener{
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
         isShowSaveBtn(View.VISIBLE);
         setShowSaveBtnText("注销车位");
-        withdrawal_btn=findViewById(R.id.withdrawal_btn);
-        switch_btn=findViewById(R.id.switch_btn);
-        charge_btn=findViewById(R.id.charge_btn);
-        parking_space_type=findViewById(R.id.parking_space_type);
-        parking_space_serial_number=findViewById(R.id.parking_space_serial_number);
-        parking_space_location=findViewById(R.id.parking_space_location);
+
+        View mView = this.getLayoutInflater().inflate(R.layout.inclue_layout, null);
+
+        withdrawal_btn=mView.findViewById(R.id.withdrawal_btn);
+        switch_btn=mView.findViewById(R.id.switch_btn);
+        charge_btn=mView.findViewById(R.id.charge_btn);
+        parking_space_type= mView.findViewById(R.id.parking_space_type);
+        parking_space_serial_number=mView.findViewById(R.id.parking_space_serial_number);
+        parking_space_location=mView.findViewById(R.id.parking_space_location);
+
         list_view=findViewById(R.id.list_view);
         mAdapter=new MyParkingMainAdapter(this);
         mAdapter.setDate(mList);
+
         list_view.setAdapter(mAdapter);
+        list_view.addHeaderView(mView);
     }
 
     /***

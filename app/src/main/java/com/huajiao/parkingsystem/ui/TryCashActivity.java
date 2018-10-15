@@ -42,7 +42,7 @@ public class TryCashActivity extends BaseActivity {
     protected void initView() {
         ButterKnife.bind(this);
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
-
+        setTitleText("异常停车");
         textList.add("1");
         textList.add("1");
         textList.add("1");

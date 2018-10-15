@@ -64,7 +64,7 @@ public class StopItActivity extends BaseActivity {
     protected void initView() {
         ButterKnife.bind(this);
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
-
+        setTitleText("预约停车订单");
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mListAdapter = new ListAdapter(this);
         recyclerView.setAdapter(mListAdapter);

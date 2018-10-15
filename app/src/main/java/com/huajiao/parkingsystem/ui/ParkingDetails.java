@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.Ben.SearchData;
 import com.huajiao.parkingsystem.Ben.SystemeMessageData;
 import com.huajiao.parkingsystem.R;
@@ -45,6 +46,8 @@ public class ParkingDetails extends BaseActivity implements View.OnClickListener
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("车位详情");
         common_subscribe_btn=findViewById(R.id.common_subscribe_btn);
         no_common_subscribe_btn=findViewById(R.id.no_common_subscribe_btn);
     }

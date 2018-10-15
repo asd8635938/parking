@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.Ben.SystemeMessageData;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.adapter.SystemeMessageAdapter;
@@ -47,6 +48,8 @@ public class SystemeMessageActivity extends BaseActivity {
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("系统消息");
         mListView=findViewById(R.id.list_view);
         mAdapter=new SystemeMessageAdapter(this);
         mAdapter.setDate(mList);

@@ -44,6 +44,7 @@ public class AppointmentActivity extends BaseActivity {
     protected void initView() {
         ButterKnife.bind(this);
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("订单详情");
         if (type==0){
             button_layout.setVisibility(View.VISIBLE);
             textView_canle.setVisibility(View.VISIBLE);

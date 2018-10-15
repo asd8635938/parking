@@ -5,6 +5,7 @@ import android.os.Message;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.Ben.CityData;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.adapter.SwitchOverCityAdapter;
@@ -79,6 +80,8 @@ public class SwitchOverCity extends BaseActivity {
      */
     @Override
     protected void initView() {
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
+        setTitleText("切换城市");
         presentCity=findViewById(R.id.present_city);
         mListView=findViewById(R.id.list_view);
         mAdapter=new SwitchOverCityAdapter(this);

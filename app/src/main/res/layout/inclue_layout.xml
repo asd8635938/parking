@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/my_earnings"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp13"
+            android:text="我的收益"
+            android:textColor="#222222"
+            android:textSize="@dimen/sp15" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="￥"
+            android:textColor="#27c38a" />
+
+        <TextView
+            android:id="@+id/earnings_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="11"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/withdrawal_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp30"
+            android:layout_marginRight="@dimen/dp13"
+            android:background="@drawable/registered_btn"
+            android:text="提现"
+            android:textColor="#27c38a"
+            android:textSize="@dimen/sp15"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:layout_marginLeft="@dimen/dp13"
+        android:layout_marginRight="@dimen/dp13" />
+
+
+    <LinearLayout
+        android:id="@+id/parking_space_dispark"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp13"
+            android:text="车位开放"
+            android:textColor="#222222"
+            android:textSize="@dimen/sp15" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="11"
+            android:gravity="center" />
+
+        <ImageButton
+            android:id="@+id/switch_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp13"
+            android:background="@drawable/switch_btn" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:layout_marginLeft="@dimen/dp13"
+        android:layout_marginRight="@dimen/dp13" />
+
+
+    <LinearLayout
+        android:id="@+id/charge_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp13"
+            android:text="收费标准"
+            android:textColor="#222222"
+            android:textSize="@dimen/sp15" />
+
+        <TextView
+            android:id="@+id/charge_standard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dp13"
+            android:layout_weight="10"
+            android:gravity="center|right"
+            android:text="XXXXXXX"
+            android:textColor="#898989" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp13"
+            android:src="@mipmap/right" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:layout_marginLeft="@dimen/dp13"
+        android:layout_marginRight="@dimen/dp13" />
+
+
+    <LinearLayout
+        android:id="@+id/parking_space_type"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp13"
+            android:text="车位类型"
+            android:textColor="#222222"
+            android:textSize="@dimen/sp15" />
+
+        <TextView
+            android:id="@+id/parking_space_type_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dp13"
+            android:layout_weight="10"
+            android:gravity="center|right"
+            android:text="普通车位"
+            android:textColor="#898989" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp13"
+            android:src="@mipmap/right" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:layout_marginLeft="@dimen/dp13"
+        android:layout_marginRight="@dimen/dp13" />
+
+
+    <LinearLayout
+        android:id="@+id/parking_space_serial_number"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp13"
+            android:text="车位编号"
+            android:textColor="#222222"
+            android:textSize="@dimen/sp15" />
+
+        <TextView
+            android:id="@+id/parking_space_serial_number_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dp13"
+            android:layout_weight="10"
+            android:gravity="center|right"
+            android:text="MX002"
+            android:textColor="#898989" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp13"
+            android:src="@mipmap/right" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:layout_marginLeft="@dimen/dp13"
+        android:layout_marginRight="@dimen/dp13" />
+
+
+    <LinearLayout
+        android:id="@+id/parking_space_location"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="@dimen/dp0"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp13"
+                android:text="车位定位"
+                android:textColor="#222222"
+                android:textSize="@dimen/sp15" />
+
+            <TextView
+                android:id="@+id/parking_space_location_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp13"
+                android:gravity="center|left"
+                android:text="广州市天河区"
+                android:textColor="#898989" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/dp0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/dp13"
+                android:src="@mipmap/right" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp10"
+        android:layout_marginLeft="@dimen/dp13"
+        android:layout_marginRight="@dimen/dp13" />
+
+
+    <LinearLayout
+        android:id="@+id/parking_space_state"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp13"
+            android:text="车位状态"
+            android:textColor="#222222"
+            android:textSize="@dimen/sp15" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="11"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/use_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp13"
+            android:text="使用中"
+            android:textColor="#898989" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:background="#f2f2f2"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="使用者"
+            android:textColor="#333333"
+            android:textSize="@dimen/sp15" />
+
+        <TextView
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="使用时长"
+            android:textColor="#333333"
+            android:textSize="@dimen/sp15" />
+
+        <TextView
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="费用"
+            android:textColor="#333333"
+            android:textSize="@dimen/sp15" />
+
+        <TextView
+            android:layout_width="@dimen/dp0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="使用中"
+            android:textColor="#333333"
+            android:textSize="@dimen/sp15" />
+    </LinearLayout>
+
+</LinearLayout>
