@@ -96,7 +96,7 @@ public class SearchActivity extends BaseActivity implements NavigationClick{
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                //搜索  确定是否是有限资源搜索还是无线资源搜索
             }
         });
 
