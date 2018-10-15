@@ -70,7 +70,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginRight="@dimen/dp20"
+            android:layout_marginRight="@dimen/dp10"
             />
 
 </android.support.constraint.ConstraintLayout>
