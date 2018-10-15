@@ -62,6 +62,7 @@ public class MyParkingMain extends BaseActivity implements View.OnClickListener{
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
         isShowSaveBtn(View.VISIBLE);
         setShowSaveBtnText("注销车位");
+        setTitleText("我是车位主");
 
         View mView = this.getLayoutInflater().inflate(R.layout.inclue_layout, null);
 
