@@ -21,6 +21,10 @@ public class WeCenterActivity extends BaseActivity implements View.OnClickListen
     private ImageView account_btn; // 账户安全
     private ImageView query_btn; // 违章查询
     private ImageView setting_btn; // 设置
+    private TextView  click_share;
+    private TextView  click_account;
+    private TextView  click_query;
+    private TextView  click_setting;
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
@@ -52,6 +56,10 @@ public class WeCenterActivity extends BaseActivity implements View.OnClickListen
         query_btn=findViewById(R.id.query_btn);
         setting_btn=findViewById(R.id.setting_btn);
         my_coowner=findViewById(R.id.my_coowner);
+        click_share=findViewById(R.id.click_share);
+        click_account=findViewById(R.id.click_account);
+        click_query=findViewById(R.id.click_query);
+        click_setting=findViewById(R.id.click_setting);
     }
 
     /***
@@ -67,6 +75,10 @@ public class WeCenterActivity extends BaseActivity implements View.OnClickListen
         query_btn.setOnClickListener(this);
         setting_btn.setOnClickListener(this);
         my_coowner.setOnClickListener(this);
+        click_setting.setOnClickListener(this);
+        click_share.setOnClickListener(this);
+        click_account.setOnClickListener(this);
+        click_query.setOnClickListener(this);
     }
 
     /**
@@ -97,13 +109,25 @@ public class WeCenterActivity extends BaseActivity implements View.OnClickListen
             case R.id.share_btn:
                 openActivity(ShareFriendActivity.class);
                 break;
+            case R.id.click_share:
+                openActivity(ShareFriendActivity.class);
+                break;
             case R.id.account_btn:
+                openActivity(AlterPasswordActivty.class);
+                break;
+            case R.id.click_account:
                 openActivity(AlterPasswordActivty.class);
                 break;
             case R.id.query_btn:
                 showToast("暂时没有第三方");
                 break;
+            case R.id.click_query:
+                showToast("暂时没有第三方");
+                break;
             case R.id.setting_btn:
+               openActivity(SettingActivity.class);
+                break;
+            case R.id.click_setting:
                openActivity(SettingActivity.class);
                 break;
             case R.id.my_coowner:
