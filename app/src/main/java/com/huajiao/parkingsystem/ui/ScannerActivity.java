@@ -1,8 +1,14 @@
 package com.huajiao.parkingsystem.ui;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+
 import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
+import com.uuzuche.lib_zxing.activity.CaptureFragment;
+import com.uuzuche.lib_zxing.activity.CodeUtils;
 
 public class ScannerActivity extends BaseActivity {
     /**
@@ -30,6 +36,19 @@ public class ScannerActivity extends BaseActivity {
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
         setTitleText("扫一扫");
 
+        /**
+         * 执行扫面Fragment的初始化操作
+         */
+        CaptureFragment captureFragment = new CaptureFragment();
+        // 为二维码扫描界面设置定制化界面
+        CodeUtils.setFragmentArgs(captureFragment, R.layout.my_camera);
+
+        captureFragment.setAnalyzeCallback(analyzeCallback);
+        /**
+         * 替换我们的扫描控件
+         */
+        getSupportFragmentManager().beginTransaction().replace(R.id.fl_my_container, captureFragment).commit();
+
     }
 
     /***
@@ -47,4 +66,19 @@ public class ScannerActivity extends BaseActivity {
     protected void getInternetData() {
 
     }
+
+    /**
+     * 二维码解析回调函数
+     */
+    CodeUtils.AnalyzeCallback analyzeCallback = new CodeUtils.AnalyzeCallback() {
+        @Override
+        public void onAnalyzeSuccess(Bitmap mBitmap, String result) {
+            showToast(result);
+        }
+
+        @Override
+        public void onAnalyzeFailed() {
+            showToast("扫描失败请重试");
+        }
+    };
 }

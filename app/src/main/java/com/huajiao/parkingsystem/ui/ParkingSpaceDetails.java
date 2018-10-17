@@ -22,6 +22,11 @@ public class ParkingSpaceDetails extends BaseActivity implements ParkingDetailsC
     private List<ParkingDetailsData> mList = new ArrayList<>();
     private ParkingDetailsDialog dialog;
     private TimeKeepingPayDialog tDialog;
+
+    private List<String> whenData =new ArrayList<>();
+    private List<String> secondsData=new ArrayList<>();
+    private List<String> timeData=new ArrayList<>();
+
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
@@ -45,6 +50,22 @@ public class ParkingSpaceDetails extends BaseActivity implements ParkingDetailsC
             data.setCanReservation(isReservation);
             mList.add(data);
         }
+        for (int i =0; i<24;i++){
+            whenData.add((i+1)+"");
+        }
+        for (int i = 0; i < 6; i++) {
+            secondsData.add(((i+1)*10)+"");
+        }
+
+        for (int i = 0; i <4 ; i++) {
+
+            if(i==3){
+                timeData.add("1");
+                break;
+            }
+            timeData.add(((i+1)*10)+"");
+        }
+
     }
 
     /**
@@ -60,6 +81,9 @@ public class ParkingSpaceDetails extends BaseActivity implements ParkingDetailsC
         list_view.setAdapter(mAdapter);
         dialog=new ParkingDetailsDialog(this);
         tDialog=new TimeKeepingPayDialog(this);
+        dialog.setWhenData(whenData);
+        dialog.setSecondsData(secondsData);
+        dialog.setTimeData(timeData);
     }
 
     /***

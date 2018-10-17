@@ -50,6 +50,26 @@ public class ParkingDetails extends BaseActivity implements View.OnClickListener
         setTitleText("车位详情");
         common_subscribe_btn=findViewById(R.id.common_subscribe_btn);
         no_common_subscribe_btn=findViewById(R.id.no_common_subscribe_btn);
+        parking_item_name=findViewById(R.id.parking_item_name);
+        residue_content=findViewById(R.id.residue_content);
+        distance_number=findViewById(R.id.distance_number);
+        free_duration_content=findViewById(R.id.free_duration_content);
+        charge_rules_content=findViewById(R.id.charge_rules_content);
+        common_content=findViewById(R.id.common_content);
+        no_common_content=findViewById(R.id.no_common_content);
+        setTextData();
+    }
+
+    private void setTextData() {
+        if(data!=null){
+            parking_item_name.setText(data.getName());
+            residue_content.setText(data.getTotalCommonContent());
+            distance_number.setText(data.getDistanceNumber()+"米");
+            free_duration_content.setText(data.getFreeDurationContent());
+            charge_rules_content.setText(data.getChargeRules());
+            common_content.setText(data.getResidueContent());
+            no_common_content.setText(data.getResidueNoCommonContent());
+        }
     }
 
     /***
