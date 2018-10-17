@@ -5,6 +5,7 @@ public class DiscountCouponData {
     private String time; // 时间
     private boolean isCanUse; // 内容
     private String couponId;
+    private boolean isClick;
 
     public String getTime() {
         return time;
@@ -36,5 +37,13 @@ public class DiscountCouponData {
 
     public void setCouponId(String couponId) {
         this.couponId = couponId;
+    }
+
+    public boolean isClick() {
+        return isClick;
+    }
+
+    public void setClick(boolean click) {
+        isClick = click;
     }
 }

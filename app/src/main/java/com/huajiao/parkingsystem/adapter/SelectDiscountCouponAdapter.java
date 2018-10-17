@@ -20,6 +20,7 @@ public class SelectDiscountCouponAdapter extends BaseAdapter {
     private List<DiscountCouponData> mList = new ArrayList<>();
     private DiscountCouponData mData;
     private SelectDiscoutClick clik;
+    private int temp = -1;
 
     public SelectDiscountCouponAdapter(Context context){
         this.context=context;
@@ -74,18 +75,27 @@ public class SelectDiscountCouponAdapter extends BaseAdapter {
         }else{
             discountView= (DiscountView) convertView.getTag();
         }
-
         mData=mList.get(position);
         discountView.bg.setBackgroundResource(mData.isCanUse() ? R.mipmap.discountcouponuncheck : R.mipmap.discountcouponcheck);
         discountView.money.setText(mData.getMoney());
         discountView.time.setText(mData.getTime());
+        discountView.isUse.setSelected(mList.get(position).isClick());
         discountView.isUse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            clik.clickBack(mData.getCouponId(),mData,discountView.isUse.isSelected());
-            // 如果是单选那么就不需要用这个做监听了
+                temp= position;
+                mList.get(position).setClick(true);
+                discountView.isUse.setSelected(mList.get(position).isClick());
+                notifyDataSetChanged();
+                clik.clickBack(position,mData.getCouponId(),mList.get(position),discountView.isUse.isSelected());
             }
         });
+        if (position == temp) {//比对position和当前的temp是否一致
+            discountView.isUse.setSelected(mList.get(position).isClick());
+        }else {
+            mList.get(position).setClick(false);
+            discountView.isUse.setSelected(mList.get(position).isClick());
+        }
         return convertView;
     }
 }

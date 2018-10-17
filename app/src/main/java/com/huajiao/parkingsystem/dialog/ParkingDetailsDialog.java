@@ -121,6 +121,8 @@ public class ParkingDetailsDialog extends Dialog {
                 whenBt.setOnClickListener(new clickListener());
                 secondsBt.setOnClickListener(new clickListener());
                 isEndHintBt.setOnClickListener(new clickListener());
+                isEndHintBt.setSelected(false);
+                pop_layout.setVisibility(View.GONE);
                 timeBt.setOnClickListener(new clickListener());
                 payCost.setOnClickListener(new clickListener());
 
@@ -147,13 +149,19 @@ public class ParkingDetailsDialog extends Dialog {
                             showSecondsPop();
                             break;
                         case R.id.is_end_hint_btn:
-                            isEbdHint=isEndHintBt.isClickable();
+                            isEbdHint=!isEndHintBt.isSelected();
+                            isEndHintBt.setSelected(isEbdHint);
+                            if(isEbdHint){
+                                pop_layout.setVisibility(View.VISIBLE);
+                            }else{
+                                pop_layout.setVisibility(View.GONE);
+                            }
                             break;
                         case R.id.time_btn:
                             showTimePop();
                             break;
                         case R.id.pay_cost:
-                            if(secondsStr==null||secondsStr==""||whenStr==null||whenStr==""){
+                            if(secondsStr==null&&secondsStr==""&&whenStr==null&&whenStr==""){
                                 Toast.makeText(context,"请选择到达时间",Toast.LENGTH_LONG).show();
                                 return;
                             }

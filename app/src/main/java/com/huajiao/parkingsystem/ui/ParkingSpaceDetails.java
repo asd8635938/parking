@@ -1,5 +1,7 @@
 package com.huajiao.parkingsystem.ui;
 
+import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -81,6 +83,7 @@ public class ParkingSpaceDetails extends BaseActivity implements ParkingDetailsC
         list_view.setAdapter(mAdapter);
         dialog=new ParkingDetailsDialog(this);
         tDialog=new TimeKeepingPayDialog(this);
+        tDialog.setCoin(50);
         dialog.setWhenData(whenData);
         dialog.setSecondsData(secondsData);
         dialog.setTimeData(timeData);
@@ -106,7 +109,9 @@ public class ParkingSpaceDetails extends BaseActivity implements ParkingDetailsC
 
             @Override
             public void openSelcetDiscountActivity() {
-                openActivity(SelectDiscountActivity.class);
+                Intent intent = new Intent();
+                intent.setClass(ParkingSpaceDetails.this,SelectDiscountActivity.class);
+                openForResultActivity(intent,1);
             }
         });
     }
@@ -122,5 +127,11 @@ public class ParkingSpaceDetails extends BaseActivity implements ParkingDetailsC
     @Override
     public void clickBack(ParkingDetailsData data) {
         dialog.show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+       tDialog.setDiscountCouponCoin(data.getExtras().getInt("payCoin"));
     }
 }

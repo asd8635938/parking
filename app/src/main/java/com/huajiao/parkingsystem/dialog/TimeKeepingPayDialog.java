@@ -53,7 +53,7 @@ public class TimeKeepingPayDialog extends Dialog {
     }
     public void refreshDiscountCoin(){
         if(discountCouponCoinTt!=null) {
-            discountCouponCoinTt.setText(this.discountCouponCoin);
+            discountCouponCoinTt.setText(this.discountCouponCoin+"");
         }
         refreshPayCoinUltimately();
 
