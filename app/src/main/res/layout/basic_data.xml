@@ -294,7 +294,18 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="@dimen/dp13"
         />
-
+    <TextView
+        android:id="@+id/car_number_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp14"
+        android:textColor="#898989"
+        android:text="mx15616"
+        app:layout_constraintTop_toTopOf="@id/car_number_btn"
+        app:layout_constraintBottom_toBottomOf="@id/car_number_btn"
+        app:layout_constraintRight_toRightOf="@id/car_number_btn"
+        android:layout_marginRight="@dimen/dp15"
+        />
     <View
         android:id="@+id/view_bg_seven"
         android:layout_width="match_parent"

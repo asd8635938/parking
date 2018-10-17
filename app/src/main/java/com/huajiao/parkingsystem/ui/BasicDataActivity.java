@@ -36,11 +36,18 @@ public class BasicDataActivity extends BaseActivity implements View.OnClickListe
     private ImageView replace_btn; // 头像
     private ImageView head_portrait; // 头像控件
     private ImageView gender_btn; // 男女
+    private ImageView iphone_number_btn; // 手机号
+    private TextView iphone_number_text; // 手机号
+    private ImageView my_id_card_btn; // 身份证
+    private TextView  my_id_card_text; // 身份证
+    private ImageView  my_address_btn; // 我的地址
+    private TextView  my_address_text; // 我的地址
+    private ImageView  car_number_btn; // 车牌号
+    private TextView  car_number_text; // 车牌号
+    private TextView gender_text; // 男女
     private TextView name_content; // 昵称
-
-    private String mFilePath;
-    private Bitmap bitmap;
     private File file;
+
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
@@ -68,6 +75,15 @@ public class BasicDataActivity extends BaseActivity implements View.OnClickListe
         replace_btn=findViewById(R.id.replace_btn);
         gender_btn=findViewById(R.id.gender_btn);
         name_content=findViewById(R.id.name_content);
+        iphone_number_btn=findViewById(R.id.iphone_number_btn);
+        iphone_number_text=findViewById(R.id.iphone_number_text);
+        my_id_card_btn=findViewById(R.id.my_id_card_btn);
+        my_id_card_text=findViewById(R.id.my_id_card_text);
+        my_address_btn=findViewById(R.id.my_address_btn);
+        my_address_text=findViewById(R.id.my_address_text);
+        car_number_btn=findViewById(R.id.car_number_btn);
+        car_number_text=findViewById(R.id.car_number_text);
+        gender_text=findViewById(R.id.gender_text);
         head_portrait=findViewById(R.id.head_portrait);
     }
 
@@ -79,6 +95,10 @@ public class BasicDataActivity extends BaseActivity implements View.OnClickListe
         replace_btn.setOnClickListener(this);
         gender_btn.setOnClickListener(this);
         name_content.setOnClickListener(this);
+        iphone_number_btn.setOnClickListener(this);
+        my_id_card_btn.setOnClickListener(this);
+        my_address_btn.setOnClickListener(this);
+        car_number_btn.setOnClickListener(this);
     }
 
     /**
@@ -101,13 +121,6 @@ public class BasicDataActivity extends BaseActivity implements View.OnClickListe
                 DialogUtils.showSelectCameraDialog(this, getWindow().getWindowManager().getDefaultDisplay().getWidth() - DialogUtils.dip2px(this, 40), new DialogUtils.ShowCameraCallBack() {
                             @Override
                             public void TopClick(Dialog dialog) {
-//                                mFilePath = Environment.getExternalStorageDirectory().getPath();// 获取SD卡路径
-//                                mFilePath = mFilePath + "/" + "temp.png";// 指定路径
-//                                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);// 启动系统相机  
-//                                Uri photoUri = Uri.fromFile(new File(mFilePath)); // 传递路径  
-//                                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);// 更改系统默认存储路径  
-//                                openForResultActivity(intent, 1);
-//                                dialog.dismiss();
                                   applyWritePermission();
                             }
 
@@ -131,30 +144,33 @@ public class BasicDataActivity extends BaseActivity implements View.OnClickListe
                  DialogUtils.showSelectGenderDialog(this, getWindow().getWindowManager().getDefaultDisplay().getWidth() - DialogUtils.dip2px(this, 40), new DialogUtils.ShowGenderCallBack() {
                              @Override
                              public void ManClick(Dialog dialog) {
+                                 gender_text.setText("男");
                                  dialog.dismiss();
                              }
 
                              @Override
                              public void femaleClick(Dialog dialog) {
+                                 gender_text.setText("女");
                                  dialog.dismiss();
                              }
                          }
                  );
                 break;
             case R.id.name_content:
-                DialogUtils.showBasicDialog(this, getWindow().getWindowManager().getDefaultDisplay().getWidth() - DialogUtils.dip2px(this, 40), new DialogUtils.ShowDialogCallBack() {
-                    @Override
-                    public void LeftClick(Dialog dialog) {
-                        dialog.dismiss();
-                    }
-
-                    @Override
-                    public void RightClick(Dialog dialog) {
-
-                    }
-                });
+                showEditDialog(name_content);
                 break;
-
+            case R.id.iphone_number_btn:
+                showEditDialog(iphone_number_text);
+                break;
+            case R.id.my_id_card_btn:
+                showEditDialog(my_id_card_text);
+                break;
+            case R.id.my_address_btn:
+                showEditDialog(my_address_text);
+                break;
+            case R.id.car_number_btn:
+                showEditDialog(car_number_text);
+                break;
         }
     }
     private void useCamera() {
@@ -194,27 +210,9 @@ public class BasicDataActivity extends BaseActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) { // 如果返回数据 
-//            if (requestCode == 1) {
-//                FileInputStream fis = null;
-//                try {
-//                    fis = new FileInputStream(mFilePath); // 根据路径获取数据
-//                    bitmap = BitmapFactory.decodeStream(fis);    //获取图片
-//                    head_portrait.setImageBitmap(bitmap);
-//                } catch (FileNotFoundException e) {
-//                    e.printStackTrace();
-//                }finally{
-//                    try{
-//                        fis.close();// 关闭流
-//                    }catch(IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }
             if(requestCode == 1){
                 head_portrait.setImageBitmap(BitmapFactory.decodeFile(file.getAbsolutePath()));
             }
-
-
 
             if (requestCode == 2 && data != null) {
                 Uri selectedImage = data.getData();
@@ -228,5 +226,19 @@ public class BasicDataActivity extends BaseActivity implements View.OnClickListe
             }
 
         }
+    }
+    private void showEditDialog(TextView textView){
+        DialogUtils.showBasicDialog(this, getWindow().getWindowManager().getDefaultDisplay().getWidth() - DialogUtils.dip2px(this, 40), new DialogUtils.ShowEditCallBack() {
+            @Override
+            public void LeftClick(Dialog dialog) {
+                dialog.dismiss();
+            }
+
+            @Override
+            public void RightClick(Dialog dialog,TextView textView,String s) {
+                dialog.dismiss();
+                textView.setText(s);
+            }
+        },textView);
     }
 }

@@ -2,6 +2,8 @@ package com.huajiao.parkingsystem.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,7 +75,6 @@ public class DialogUtils {
      * @param context
      * @param width
      * @param title
-     * @param content
      * @param listener
      */
     public static void showMyParkingDialog(boolean isShowType,Context context,int width ,String title, final ShowDialogCallBack listener) {
@@ -129,6 +130,11 @@ public class DialogUtils {
 
         void RightClick(Dialog dialog);
     }
+    public interface ShowEditCallBack {
+        void LeftClick(Dialog dialog);
+
+        void RightClick(Dialog dialog,TextView textView,String s);
+    }
 
     public interface ShowCameraCallBack {
         void TopClick(Dialog dialog);
@@ -155,9 +161,10 @@ public class DialogUtils {
 
 
 
-    public static void showBasicDialog(Context context,int width , final ShowDialogCallBack listener) {
+    public static void showBasicDialog(Context context, int width , final ShowEditCallBack listener, final TextView textView) {
         View dialogview = LayoutInflater.from(context).inflate(R.layout.basic_dialog, null);
         final Dialog dialog = new Dialog(context, R.style.dialog_bg_style);
+        final StringBuilder text = new StringBuilder();
         //设置view
         dialog.setContentView(dialogview);
         dialog.setCanceledOnTouchOutside(false);
@@ -168,6 +175,23 @@ public class DialogUtils {
         windowparams.width = width;
         windowparams.gravity= Gravity.CENTER;
         EditText edit_text = dialogview.findViewById(R.id.edit_text);
+        edit_text.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                text.delete(0,text.length());
+                text.append(s.toString());
+            }
+        });
         Button confirm_tv =  dialogview.findViewById(R.id.confirm_btn);
         Button cancel_tv =  dialogview.findViewById(R.id.cancel_btn);
 
@@ -181,7 +205,7 @@ public class DialogUtils {
         confirm_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.RightClick(dialog);
+                listener.RightClick(dialog,textView,text.toString());
             }
         });
         dialog.show();
