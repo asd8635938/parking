@@ -24,7 +24,7 @@ public class PayActivity extends BaseActivity implements View.OnClickListener{
     private EditText phone_et;
     private EditText verification_code_et;
     private TextView get_verification_code;
-    private Button   confirm_btn;
+    private TextView   confirm_btn;
 
     private String alipayAccount;
     private String inputAccount;

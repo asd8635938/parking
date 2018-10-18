@@ -135,7 +135,7 @@ public class PayPageActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.confirm_btn:
                 if(payType!=-1){
-
+                    pay_confirm.setVisibility(View.GONE);
                 }else {
                     showToast("请选择支付类型");
                 }
