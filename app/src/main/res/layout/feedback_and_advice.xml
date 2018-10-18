@@ -27,6 +27,7 @@
         />
 
     <EditText
+        android:id="@+id/feedback_content_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/bg_one"
@@ -46,6 +47,7 @@
         app:layout_constraintBottom_toBottomOf="@id/bg_one"
         android:layout_marginLeft="@dimen/dp13"
         android:layout_marginBottom="@dimen/dp13"
+        android:src="@mipmap/white"
         />
     <ImageView
         android:id="@+id/delete_feedback"

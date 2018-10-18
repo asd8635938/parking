@@ -11,14 +11,18 @@ import com.huajiao.parkingsystem.MainActivity;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 import com.huajiao.parkingsystem.dialog.SettingDialog;
+import com.huajiao.parkingsystem.tools.SharedPreferencesHelper;
 
 public class SettingActivity extends BaseActivity implements View.OnClickListener{
-    private ImageButton switch_btn;
+    private ImageView switch_btn;
     private LinearLayout check_update;
     private LinearLayout about_my;
     private LinearLayout feedback;
     private Button out_login;
     private SettingDialog dialog;
+    private boolean isPush;
+    private SharedPreferencesHelper shared;
+    private String shareKey="isPush";
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
@@ -33,7 +37,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
      */
     @Override
     protected void initData() {
-
+        shared=new SharedPreferencesHelper(this,"message_push");
+        isPush= (boolean) shared.getSharedPreference(shareKey,false);
     }
 
     /**
@@ -49,6 +54,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         feedback=findViewById(R.id.feedback);
         out_login=findViewById(R.id.out_login);
         dialog=new SettingDialog(this);
+        switch_btn.setSelected(isPush);
     }
 
     /***
@@ -91,7 +97,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.switch_btn:
-                switch_btn.setClickable(!switch_btn.isClickable());
+                switch_btn.setSelected(!switch_btn.isSelected());
                 break;
             case R.id.check_update:
                 dialog.show();
@@ -107,5 +113,11 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 break;
 
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        shared.put(shareKey,switch_btn.isSelected());
     }
 }
