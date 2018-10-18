@@ -48,7 +48,7 @@
        android:id="@+id/pay_confirm"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:visibility="gone"
+       android:visibility="visible"
        android:orientation="vertical"
        android:background="#27000000"
        android:gravity="bottom"
@@ -72,6 +72,8 @@
                    android:layout_alignParentEnd="true"
                    android:layout_alignParentTop="true"
                    android:layout_gravity="right"
+                   android:layout_marginRight="@dimen/dp10"
+                   android:layout_marginTop="@dimen/dp5"
                    android:src="@mipmap/closepopup"
                    android:layout_alignParentRight="true" />
 
@@ -186,14 +188,14 @@
                android:orientation="horizontal"
                android:layout_weight="1.5"
                android:gravity="center_vertical"
+               android:layout_marginBottom="@dimen/dp15"
+               android:layout_marginTop="@dimen/dp15"
                >
                <Button
                    android:id="@+id/confirm_btn"
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
                    android:background="@drawable/login_btn"
-                   android:layout_marginTop="@dimen/dp8"
-                   android:layout_marginBottom="@dimen/dp8"
                    android:text="确认支付500.00元"
                    android:textColor="#ffffff"
                    android:textSize="@dimen/sp15"

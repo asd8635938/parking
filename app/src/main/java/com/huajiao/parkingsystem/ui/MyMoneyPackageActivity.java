@@ -3,6 +3,7 @@ package com.huajiao.parkingsystem.ui;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.R;
@@ -14,6 +15,7 @@ public class MyMoneyPackageActivity extends BaseActivity implements View.OnClick
    private LinearLayout pay_coin;
    private LinearLayout withdrawal;
    private LinearLayout coupons;
+   private TextView account_coin;
 
     /**
      * @return {int} {当前布局的layoutid}
@@ -43,6 +45,8 @@ public class MyMoneyPackageActivity extends BaseActivity implements View.OnClick
         pay_coin=findViewById(R.id.pay_coin);
         withdrawal=findViewById(R.id.withdrawal);
         coupons=findViewById(R.id.coupons);
+        account_coin=findViewById(R.id.account_coin);
+        account_coin.setText("258654");
     }
 
     /***

@@ -1,10 +1,14 @@
 package com.huajiao.parkingsystem.ui;
 
+import android.view.View;
+import android.widget.Button;
+
 import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
 public class SubmitApply extends BaseActivity {
+    private Button back_money_package;
     /**
      * @return {int} {当前布局的layoutid}
      * 使用方式 直接返回需要setContentView的LayoutId
@@ -29,6 +33,7 @@ public class SubmitApply extends BaseActivity {
     protected void initView() {
         StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.title));
         setTitleText("提交申请");
+        back_money_package=findViewById(R.id.back_money_package);
 
     }
 
@@ -37,9 +42,13 @@ public class SubmitApply extends BaseActivity {
      */
     @Override
     protected void bindEvent() {
-
+        back_money_package.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity(MyMoneyPackageActivity.class);
+            }
+        });
     }
-
     /**
      * 提供给需要获得网络数据
      */
