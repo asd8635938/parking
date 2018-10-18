@@ -351,6 +351,7 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
                             @Override
                             public void RightClick(Dialog dialog) {
                                 openActivity(WeCenterActivity.class);
+                                finish();
                             }
                         },false);
                 break;

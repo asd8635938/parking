@@ -11,6 +11,7 @@ import com.githang.statusbar.StatusBarCompat;
 import com.huajiao.parkingsystem.MainActivity;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
+import com.huajiao.parkingsystem.tools.CheckUtil;
 
 public class AlterPasswordActivty extends BaseActivity implements View.OnClickListener{
     private EditText mMobileEt;
@@ -93,6 +94,13 @@ public class AlterPasswordActivty extends BaseActivity implements View.OnClickLi
             case R.id.send_verificaton_code:
                 break;
             case R.id.confirm_btn:
+                if(!CheckUtil.checkString(mobile)||
+                        !CheckUtil.checkString(verification)||
+                        !CheckUtil.checkString(password)||!CheckUtil.checkString(confirmPassword)){
+                    showToast("请完善内容");
+                    return;
+                }
+                // 在服务器成功后回到主页面
                 openActivity(MainActivity.class);
                 break;
         }
