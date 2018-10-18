@@ -24,7 +24,7 @@ import org.w3c.dom.Text;
 
 public class DialogUtils {
 
-    public static void showDialog(boolean commit,Context context,int width ,String title, String content, final ShowDialogCallBack listener) {
+    public static void showDialog(boolean commit,Context context,int width ,String title, String content, final ShowDialogCallBack listener,boolean isShowLeft) {
         View dialogview = LayoutInflater.from(context).inflate(R.layout.dialog_common, null);
         final Dialog dialog = new Dialog(context, R.style.dialog_bg_style);
         //设置view
@@ -48,6 +48,11 @@ public class DialogUtils {
             relativeLayout.setVisibility(View.VISIBLE);
         } else {
             relativeLayout.setVisibility(View.GONE);
+        }
+        if(isShowLeft){
+            cancel_tv.setVisibility(View.VISIBLE);
+        }else {
+            cancel_tv.setVisibility(View.GONE);
         }
 
         if (title != null) {

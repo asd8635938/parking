@@ -143,7 +143,7 @@ public class MyParkingMain extends BaseActivity implements View.OnClickListener{
                     public void RightClick(Dialog dialog) {
                         dialog.dismiss();
                     }
-                });
+                },true);
                 break;
             case R.id.parking_space_location:
                     showToast("暂时没有定位数据");
@@ -166,7 +166,7 @@ public class MyParkingMain extends BaseActivity implements View.OnClickListener{
             public void RightClick(Dialog dialog) {
                 dialog.dismiss();
             }
-        });
+        },true);
         super.callbackSaveBtn();
     }
 

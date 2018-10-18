@@ -116,7 +116,7 @@ public class AppointmentActivity extends BaseActivity {
 //                        openActivity(StopItActivity.class);
 
                     }
-                });
+                },true);
             }
         });
 
@@ -134,7 +134,7 @@ public class AppointmentActivity extends BaseActivity {
                         dialog.dismiss();
                         openActivity(ParkingSpaceLockSucc.class);
                     }
-                });
+                },true);
             }
         });
 

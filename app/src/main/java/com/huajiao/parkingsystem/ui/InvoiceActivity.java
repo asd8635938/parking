@@ -1,19 +1,26 @@
 package com.huajiao.parkingsystem.ui;
 
+import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.githang.statusbar.StatusBarCompat;
 import com.google.gson.Gson;
+import com.huajiao.parkingsystem.Ben.InvoiceBean;
 import com.huajiao.parkingsystem.Ben.JsonBean;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
+import com.huajiao.parkingsystem.dialog.DialogUtils;
+import com.huajiao.parkingsystem.tools.CheckUtil;
 import com.huajiao.parkingsystem.tools.GetJsonDataUtil;
 
 import org.json.JSONArray;
@@ -27,7 +34,31 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
 
     private Button electronic_invoice;
     private Button paper_invoice;
+    private Button submit_btn;
+
+
     private TextView select_city;
+    private TextView invoice_coin;
+    private TextView iphone_text;
+
+    private int coin;
+    private int type=-1; // 1代表电子发票  2 代表纸质发票
+
+    private EditText invoice_look_up_et;
+    private EditText enterprise_et;
+    private EditText invoice_content;
+    private EditText email_et;
+    private EditText recipient_et;
+    private EditText address_et;
+
+    private  String invoiceLookUp;
+    private  String enterprise;
+    private  String invoiceContent;
+    private  String email;
+    private  String recipient;
+    private  String address;
+    private  String iphone="2568";
+    private  String city;
 
     private ArrayList<JsonBean> options1Items = new ArrayList<>();
     private ArrayList<ArrayList<String>> options2Items = new ArrayList<>();
@@ -51,6 +82,10 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
      */
     @Override
     protected void initData() {
+        ArrayList<InvoiceBean> listObj =  (ArrayList<InvoiceBean>) getIntent().getSerializableExtra("list");
+        for (InvoiceBean data:listObj) {
+            coin+=Integer.valueOf(data.getPayCoin());
+        }
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -70,14 +105,29 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
         setTitleText("开具发票");
         electronic_invoice=findViewById(R.id.electronic_invoice);
         paper_invoice=findViewById(R.id.paper_invoice);
+        submit_btn=findViewById(R.id.submit_btn);
 
         paper_layout=findViewById(R.id.paper_layout);
         email_layout=findViewById(R.id.email_layout);
         select_city=findViewById(R.id.select_city);
+        select_city.setText("点我选择城市地区");
+
+        invoice_coin=findViewById(R.id.invoice_coin);
+        invoice_coin.setText(coin+"");
+        iphone_text=findViewById(R.id.iphone_text);
+        iphone_text.setText(iphone);
+
+        invoice_look_up_et=findViewById(R.id.invoice_look_up_et);
+        enterprise_et=findViewById(R.id.enterprise);
+        invoice_content=findViewById(R.id.invoice_content);
+        email_et=findViewById(R.id.email_et);
+        recipient_et=findViewById(R.id.recipient_et);
+        address_et=findViewById(R.id.address_et);
+
         // 初始页面调整
         email_layout.setVisibility(View.VISIBLE);
         paper_layout.setVisibility(View.GONE);
-
+        type=1;
         paper_invoice.setTextColor(Color.parseColor("#222222"));
         paper_invoice.setBackgroundResource(R.drawable.registered_btn_no_border);
         electronic_invoice.setTextColor(Color.parseColor("#27c38a"));
@@ -94,6 +144,14 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
         electronic_invoice.setOnClickListener(this);
         paper_invoice.setOnClickListener(this);
         select_city.setOnClickListener(this);
+        submit_btn.setOnClickListener(this);
+
+        invoice_look_up_et.addTextChangedListener(new ClassOfTextWatcher(invoice_look_up_et));
+        enterprise_et.addTextChangedListener(new ClassOfTextWatcher(enterprise_et));
+        invoice_content.addTextChangedListener(new ClassOfTextWatcher(invoice_content));
+        email_et.addTextChangedListener(new ClassOfTextWatcher(email_et));
+        recipient_et.addTextChangedListener(new ClassOfTextWatcher(recipient_et));
+        address_et.addTextChangedListener(new ClassOfTextWatcher(address_et));
     }
 
     /**
@@ -194,11 +252,14 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 //返回的分别是三个级别的选中位置
-                String tx = options1Items.get(options1).getPickerViewText() +
+                city = options1Items.get(options1).getPickerViewText() +
                         options2Items.get(options1).get(options2);
 //                tvBankProvince.setText(tx+"");
+                select_city.setText(city);
             }
-        }).setTitleText("城市选择")
+        }).setTitleText("")
+          .setCancelText("取消")
+          .setSubmitText("确定")
           .setDividerColor(Color.BLACK)
           .setTextColorCenter(Color.BLACK) //设置选中项文字颜色
           .setContentTextSize(20)
@@ -234,6 +295,7 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
                 }
                 break;
             case R.id.electronic_invoice:
+                type=1;
                 email_layout.setVisibility(View.VISIBLE);
                 paper_layout.setVisibility(View.GONE);
                 paper_invoice.setTextColor(Color.parseColor("#222222"));
@@ -243,6 +305,7 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
 
                 break;
             case R.id.paper_invoice:
+                type=2;
                 paper_layout.setVisibility(View.VISIBLE);
                 email_layout.setVisibility(View.GONE);
 
@@ -252,6 +315,95 @@ public class InvoiceActivity extends BaseActivity implements View.OnClickListene
                 paper_invoice.setTextColor(Color.parseColor("#27c38a"));
                 paper_invoice.setBackgroundResource(R.drawable.registered_btn);
                 break;
+            case R.id.submit_btn:
+
+               if(type==1){
+                   if(!CheckUtil.checkString(email)
+                           ||!CheckUtil.checkString(invoiceLookUp)
+                           ||!CheckUtil.checkString(enterprise)
+                           ||!CheckUtil.checkString(invoiceContent)){
+                       showToast("请完善发票信息");
+                       return;
+                   }
+               }else {
+                   if (!CheckUtil.checkString(invoiceLookUp)
+                           ||!CheckUtil.checkString(enterprise)
+                           ||!CheckUtil.checkString(invoiceContent)
+                           ||!CheckUtil.checkString(recipient)
+                           ||!CheckUtil.checkString(iphone)
+                           ||!CheckUtil.checkString(address)
+                           ||!CheckUtil.checkString(city)){
+                       showToast("请完善发票信息");
+                       return;
+                   }
+                   if (city.equals("点我选择城市地区")){
+                       showToast("请选择城市地区");
+                       return;
+                   }
+               }
+                    DialogUtils.showDialog(false, this, getWindow().getWindowManager().getDefaultDisplay().getWidth() - DialogUtils.dip2px(this, 40),
+                        "提示", "已经提交成功请等待后台审核", new DialogUtils.ShowDialogCallBack() {
+                            @Override
+                            public void LeftClick(Dialog dialog) {
+
+                            }
+
+                            @Override
+                            public void RightClick(Dialog dialog) {
+                                openActivity(WeCenterActivity.class);
+                            }
+                        },false);
+                break;
+        }
+    }
+
+    private class ClassOfTextWatcher implements TextWatcher
+    {
+        private TextView view;
+
+        public ClassOfTextWatcher(View view) {
+
+            if (view instanceof TextView)
+                this.view = (TextView) view;
+            else
+                throw new ClassCastException(
+                        "view must be an instance Of TextView");
+        }
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            if (s.length() >= 0) {
+                switch (this.view.getId())
+                {
+                    case R.id.invoice_look_up_et:
+                        invoiceLookUp=s.toString();
+                        break;
+                    case R.id.enterprise:
+                        enterprise=s.toString();
+                        break;
+                    case R.id.invoice_content:
+                        invoiceContent=s.toString();
+                        break;
+                    case R.id.email_et:
+                         email=s.toString();
+                        break;
+                    case R.id.recipient_et:
+                        recipient=s.toString();
+                        break;
+                    case R.id.address_et:
+                        address=s.toString();
+                        break;
+                }
+            }
         }
     }
 }

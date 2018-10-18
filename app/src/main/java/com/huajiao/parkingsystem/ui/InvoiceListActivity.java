@@ -2,26 +2,24 @@ package com.huajiao.parkingsystem.ui;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.githang.statusbar.StatusBarCompat;
-import com.huajiao.parkingsystem.Ben.TestBean;
+import com.huajiao.parkingsystem.Ben.InvoiceBean;
 import com.huajiao.parkingsystem.R;
 import com.huajiao.parkingsystem.base.BaseActivity;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class InvoiceListActivity extends BaseActivity {
 
@@ -30,7 +28,8 @@ public class InvoiceListActivity extends BaseActivity {
     private TextView textViewNumb;
 
     private ListAdapter mListAdapter;
-    private List<TestBean> beanList = new ArrayList<>();
+    private List<InvoiceBean> beanList = new ArrayList<>();
+    private ArrayList<InvoiceBean> checkList=new ArrayList<>();
     private TextView next;
     private boolean isClick = false;
 
@@ -57,9 +56,14 @@ public class InvoiceListActivity extends BaseActivity {
         titleTop.setBackgroundColor(getResources().getColor(R.color.title));
 
         for (int i = 0; i < 10; i++) {
-            TestBean testBean = new TestBean();
-            testBean.setCheck(false);
-            beanList.add(testBean);
+            InvoiceBean invoiceBean = new InvoiceBean();
+            invoiceBean.setCheck(false);
+            invoiceBean.setId(i);
+            invoiceBean.setAddress("棠东花园B区");
+            invoiceBean.setPayCoin("30"+i);
+            invoiceBean.setTime("2018-10-18");
+            invoiceBean.setUseDuration("123"+i);
+            beanList.add(invoiceBean);
         }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -71,7 +75,7 @@ public class InvoiceListActivity extends BaseActivity {
 
     }
 
-    private class ListAdapter extends BaseQuickAdapter<TestBean, BaseViewHolder> {
+    private class ListAdapter extends BaseQuickAdapter<InvoiceBean, BaseViewHolder> {
         private Context mContext;
 
         public ListAdapter(Context mContext) {
@@ -80,8 +84,18 @@ public class InvoiceListActivity extends BaseActivity {
         }
 
         @Override
-        protected void convert(final BaseViewHolder helper, final TestBean item) {
+        protected void convert(final BaseViewHolder helper, final InvoiceBean item) {
             final ImageView imageView = helper.getView(R.id.imageView);
+            TextView time_text= helper.getView(R.id.time_text);
+            TextView address_text=helper.getView(R.id.address_text);
+            TextView use_duration=helper.getView(R.id.use_duration);
+            TextView coin_text=helper.getView(R.id.coin_text);
+            time_text.setText(item.getTime());
+            address_text.setText(item.getAddress());
+            use_duration.setText(item.getUseDuration()+"分钟");
+            coin_text.setText(item.getPayCoin()+"元");
+
+
             if (item.getCheck()) {
                 imageView.setImageResource(R.mipmap.circlecheck);
             } else {
@@ -107,14 +121,17 @@ public class InvoiceListActivity extends BaseActivity {
     }
 
     private void initCount() {
+        checkList.clear();
         if (mListAdapter.getData() != null && mListAdapter.getData().size() != 0) {
             int count = 0;
             for (int i = 0; i < mListAdapter.getData().size(); i++) {
                 if (mListAdapter.getData().get(i).getCheck()) {
                     count = count + 1;
+                    checkList.add(beanList.get(i));
                 }
             }
             textViewNumb.setText("共选" + count + "次停车记录");
+
         }
     }
 
@@ -148,7 +165,14 @@ public class InvoiceListActivity extends BaseActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity(InvoiceActivity.class);
+                if(checkList.size()>0){
+                    Intent intent = new Intent();
+                    intent.putExtra("list",checkList);
+                    intent.setClass(InvoiceListActivity.this,InvoiceActivity.class);
+                    openActivity(intent);
+                }else {
+                    showToast("请选择需要开具的发票");
+                }
             }
         });
     }

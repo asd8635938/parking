@@ -182,13 +182,14 @@
                     android:textColor="#222222"
                     android:textSize="@dimen/sp14" />
 
-                <TextView
+                <EditText
                     android:id="@+id/invoice_content"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp10"
                     android:layout_weight="2"
-                    android:text="XXXXXX"
+                    android:hint="发票内容"
+                    android:background="@null"
                     android:textColor="#898989"
                     android:textSize="@dimen/sp14" />
 
@@ -355,14 +356,14 @@
                         android:textColor="#222222"
                         android:textSize="@dimen/sp14" />
 
-                    <EditText
-                        android:id="@+id/iphone_et"
+                    <TextView
+                        android:id="@+id/iphone_text"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp10"
                         android:layout_weight="2"
                         android:background="@null"
-                        android:hint="填写联系电话"
+                        android:text="填写联系电话"
                         android:textColor="#898989"
                         android:textColorHint="#898989"
                         android:textSize="@dimen/sp14" />
