@@ -1,5 +1,7 @@
 package com.huajiao.parkingsystem.ui;
 
+import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -51,6 +53,7 @@ public class StopOrderDetailsActivity extends BaseActivity implements TimeKeepin
             use_layout.setVisibility(View.GONE);
             no_use_layout.setVisibility(View.VISIBLE);
         }
+        dialog.setCoin(30);
     }
 
     /***
@@ -76,11 +79,20 @@ public class StopOrderDetailsActivity extends BaseActivity implements TimeKeepin
 
     @Override
     public void doConfirm() {
+        // 还差一些逻辑处理
         dialog.dismiss();
     }
 
     @Override
     public void openSelcetDiscountActivity() {
-        openActivity(SelectDiscountActivity.class);
+        Intent intent = new Intent();
+        intent.setClass(StopOrderDetailsActivity.this,SelectDiscountActivity.class);
+        openForResultActivity(intent,1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        dialog.setDiscountCouponCoin(data.getExtras().getInt("payCoin"));
     }
 }
