@@ -26,7 +26,7 @@
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="15dp">
@@ -84,8 +84,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="20dp"
-            android:text="确定要取消预约吗？"
+            android:padding="5dp"
+            android:text="如需延长到达时间，请支付费用"
             android:textColor="@color/text898989"
             android:textSize="15sp" />
 

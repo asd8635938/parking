@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import com.huajiao.parkingsystem.R;
 
+import org.w3c.dom.Text;
+
 /**
  * Created by DELL on 2018/10/9.
  */
@@ -39,6 +41,8 @@ public class DialogUtils {
         TextView tvTitle = (TextView) dialogview.findViewById(R.id.title);
         TextView tvContent = (TextView) dialogview.findViewById(R.id.tv_content);
         RelativeLayout relativeLayout = (RelativeLayout) dialogview.findViewById(R.id.relativeLayout);
+        TextView whenText=dialogview.findViewById(R.id.text_hour);
+        TextView minText=dialogview.findViewById(R.id.text_min);
 
         if (commit) {
             relativeLayout.setVisibility(View.VISIBLE);

@@ -177,6 +177,12 @@
         <activity
             android:name=".ui.SubmitApply"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.ParkingSpaceLockSucc"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.ParkingSpaceLockFail"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
